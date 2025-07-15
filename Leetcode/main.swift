@@ -7,5 +7,6 @@
 
 import Foundation
 
-print("Hello, World!")
-
+//两数之和().run()
+//最长公共前缀().run()
+字符串反转().run()

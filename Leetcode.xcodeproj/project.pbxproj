@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		D216269A2E25074200D56EC5 /* 字符串反转.swift in Sources */ = {isa = PBXBuildFile; fileRef = D21626992E25074200D56EC5 /* 字符串反转.swift */; };
+		D216269C2E250F2500D56EC5 /* 两数相加.swift in Sources */ = {isa = PBXBuildFile; fileRef = D216269B2E250F2500D56EC5 /* 两数相加.swift */; };
+		D26E7FFE2E24B02500AF2B9B /* 两数之和.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E7FFD2E24B02500AF2B9B /* 两数之和.swift */; };
+		D26E80022E24B19B00AF2B9B /* 最长公共前缀.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26E80012E24B19B00AF2B9B /* 最长公共前缀.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		D26E7FEF2E24AF8A00AF2B9B /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -19,7 +26,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D21626992E25074200D56EC5 /* 字符串反转.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "字符串反转.swift"; sourceTree = "<group>"; };
+		D216269B2E250F2500D56EC5 /* 两数相加.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "两数相加.swift"; sourceTree = "<group>"; };
 		D26E7FF12E24AF8A00AF2B9B /* Leetcode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Leetcode; sourceTree = BUILT_PRODUCTS_DIR; };
+		D26E7FFD2E24B02500AF2B9B /* 两数之和.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "两数之和.swift"; sourceTree = "<group>"; };
+		D26E80012E24B19B00AF2B9B /* 最长公共前缀.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "最长公共前缀.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -44,6 +55,8 @@
 		D26E7FE82E24AF8A00AF2B9B = {
 			isa = PBXGroup;
 			children = (
+				D26E7FFC2E24B00B00AF2B9B /* Classic */,
+				D26E7FFB2E24B00100AF2B9B /* Array */,
 				D26E7FF32E24AF8A00AF2B9B /* Leetcode */,
 				D26E7FF22E24AF8A00AF2B9B /* Products */,
 			);
@@ -55,6 +68,24 @@
 				D26E7FF12E24AF8A00AF2B9B /* Leetcode */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		D26E7FFB2E24B00100AF2B9B /* Array */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		D26E7FFC2E24B00B00AF2B9B /* Classic */ = {
+			isa = PBXGroup;
+			children = (
+				D26E7FFD2E24B02500AF2B9B /* 两数之和.swift */,
+				D26E80012E24B19B00AF2B9B /* 最长公共前缀.swift */,
+				D21626992E25074200D56EC5 /* 字符串反转.swift */,
+				D216269B2E250F2500D56EC5 /* 两数相加.swift */,
+			);
+			path = Classic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +152,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D26E80022E24B19B00AF2B9B /* 最长公共前缀.swift in Sources */,
+				D216269A2E25074200D56EC5 /* 字符串反转.swift in Sources */,
+				D26E7FFE2E24B02500AF2B9B /* 两数之和.swift in Sources */,
+				D216269C2E250F2500D56EC5 /* 两数相加.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

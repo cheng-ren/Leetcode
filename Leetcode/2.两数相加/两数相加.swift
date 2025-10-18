@@ -5,30 +5,9 @@
 //  Created by yiche on 2025/7/14.
 //
 
-import Foundation
+import Testing
 
-class 两数相加: Common {
-    
-    public class ListNode: CustomStringConvertible {
-        public var val: Int
-        public var next: ListNode?
-        public init() { self.val = 0; self.next = nil; }
-        public init(_ val: Int) { self.val = val; self.next = nil; }
-        public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
-        
-        public var description: String {
-            var next: ListNode? = self
-            var ret = ""
-            while next != nil {
-                ret += "\(next!.val) -> "
-                next = next!.next
-            }
-            if ret.hasSuffix(" -> ") {
-                ret = String(ret.prefix(ret.count - 4))
-            }
-            return ret
-        }
-    }
+struct 两数相加 {
     
     class Solution {
         
@@ -70,7 +49,7 @@ class 两数相加: Common {
         }
     }
     
-    func test1() -> Any {
+    @Test func testUnit0() {
         // 2, 4, 3
         let node2 = ListNode()
         node2.val = 2
@@ -93,12 +72,14 @@ class 两数相加: Common {
         
         print(node2)
         print(node5)
-        return Solution().addTwoNumbers(node2, node5) // 预期 "7 0 8"
+        
+        let ret = Solution().addTwoNumbers(node2, node5) // 预期 "7 0 8"
+        
+        #expect(ret != nil)
     }
     
-    override func test() -> Any {
-        
-        print(test1())
+    @Test
+    func testUnit1() {
         
         // 2, 4, 3
         let node9 = ListNode()
@@ -136,9 +117,13 @@ class 两数相加: Common {
         node199.next = node1999
         node1999.next = node19999
         
-        print(node9)
-        print(node19)
-        return Solution().addTwoNumbers(node9, node19) // 预期 "7 0 8"
+        let ret = Solution().addTwoNumbers(node9, node19) // 预期 "7 0 8"
+        
+        #expect(ret != nil)
     }
     
+    @Test
+    func showProblem() async throws {
+        showMarkdown(#filePath)
+    }
 }

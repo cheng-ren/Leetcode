@@ -5,9 +5,9 @@
 //  Created by yiche on 2025/7/14.
 //
 
-import Foundation
+import Testing
 
-class 字符串反转: Common {
+struct 反转字符串 {
     
     class Solution1 {
         func reverseString(_ s: inout [Character]) {
@@ -27,11 +27,22 @@ class 字符串反转: Common {
         }
     }
     
-    
-    override func test() -> Any {
+    @Test func testUnit0() async throws {
         var s: [Character] = ["h","e","l","l","o"]
         Solution().reverseString(&s) // 预期 "olleh"
-        return s
+        logger(resolveName: String(describing: type(of: self)), parameters: [s], ret: s)
+        #expect(s == ["o","l","l","e","h"])
+    }
+    
+    @Test func testUnit1() async throws {
+        var s: [Character] = ["h","e","l","l","o"]
+        Solution1().reverseString(&s) // 预期 "olleh"
+        logger(resolveName: String(describing: type(of: self)), parameters: [s], ret: s)
+        #expect(s == ["o","l","l","e","h"])
+    }
+    
+    @Test func showProblem() async throws {
+        showMarkdown(#filePath)
     }
     
 }

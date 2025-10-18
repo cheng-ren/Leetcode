@@ -9,6 +9,59 @@ import Testing
 
 struct 两数相加 {
     
+    class Solution0 {
+        
+        func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
+            // 需要注意的点
+            // 1. 进位(下一个元素进位,最后一个进位)
+            // 2. 两个链表长度不一致
+            
+            var list1 = l1
+            var list2 = l2
+            
+            var nNode: ListNode? = nil
+            var cNode = nNode
+            
+            var carry = false
+
+            while !(list1 == nil && list2 == nil) {
+                let lVal = list1?.val ?? 0
+                let rVal = list2?.val ?? 0
+                var nVal = lVal + rVal
+                
+                if carry {
+                    nVal += 1
+                    carry = false
+                }
+                
+                if nVal >= 10 {
+                    nVal -= 10
+                    carry = true
+                }
+
+                if nNode == nil {
+                    nNode = ListNode(nVal)
+                    cNode = nNode
+                } else {
+                    cNode?.next = ListNode(nVal)
+                    cNode = cNode?.next
+                }
+                
+                list1 = list1?.next
+                list2 = list2?.next
+            }
+
+            if carry {
+                cNode?.next = ListNode(1)
+                cNode = cNode?.next
+            }
+
+            return nNode
+        }
+        
+        
+    }
+    
     class Solution {
         
         func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
@@ -73,7 +126,7 @@ struct 两数相加 {
         print(node2)
         print(node5)
         
-        let ret = Solution().addTwoNumbers(node2, node5) // 预期 "7 0 8"
+        let ret = Solution0().addTwoNumbers(node2, node5) // 预期 "7 0 8"
         
         #expect(ret != nil)
     }

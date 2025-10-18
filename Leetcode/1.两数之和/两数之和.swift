@@ -9,18 +9,23 @@ import Testing
 
 struct 两数之和 {
     
-    /*
-     # 🧮 Two Sum
-
-     Given an array of integers `nums` and an integer `target`, return *indices of the two numbers such that they add up to* `target`.
-
-     ```swift
-     Input: nums = [2,7,11,15], target = 9
-     Output: [0,1]
-     ```
-     */
-
-    class Solution {
+    /// 暴力解法
+    class Solution0 {
+    
+        func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+            for i in 0..<nums.count {
+                for j in i+1..<nums.count {
+                    if nums[i] + nums[j] == target {
+                        return [i, j]
+                    }
+                }
+            }
+            return []
+        }
+    }
+    
+    /// 字典缓存
+    class Solution1 {
         
         func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
             var dict: [Int: Int] = [:]
@@ -33,17 +38,38 @@ struct 两数之和 {
             return []
         }
     }
+    
+    /// 自测 - 字典缓存
+    class Solution2 {
+        
+        func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
+            var dict: [Int: Int] = [:]
+            for (i, num) in nums.enumerated() {
+                if let targetIndex = dict[target - num] {
+                    return [targetIndex, i]
+                }
+                dict[num] = i
+            }
+            return []
+        }
+    }
 
     @Test func testUnit0() async throws {
-        let ret = Solution().twoSum([2, 3, 4, 6], 5)
+        let ret = Solution0().twoSum([2, 3, 4, 6], 5)
         logger(resolveName: String(describing: type(of: self)), parameters: [[2, 3, 4, 6], 5], ret: ret)
         #expect(ret == [0, 1])
     }
     
     @Test func testUnit1() async throws {
-        let ret = Solution().twoSum([2, 3, 4, 7], 5)
+        let ret = Solution1().twoSum([2, 3, 4, 7], 5)
         logger(resolveName: String(describing: type(of: self)), parameters: [[2, 3, 4, 7], 5], ret: ret)
         #expect(ret == [0, 1])
+    }
+    
+    @Test func testUnit2() async throws {
+        let ret = Solution2().twoSum([2, 3, 4, 7], 6)
+        logger(resolveName: String(describing: type(of: self)), parameters: [[2, 3, 4, 7], 5], ret: ret)
+        #expect(ret == [0, 2])
     }
     
     @Test func showProblem() async throws {

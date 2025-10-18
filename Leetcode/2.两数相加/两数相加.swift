@@ -127,12 +127,11 @@ struct 两数相加 {
         print(node5)
         
         let ret = Solution0().addTwoNumbers(node2, node5) // 预期 "7 0 8"
-        
-        #expect(ret != nil)
+        print(ret)
+        #expect(ret?.toList() == [7, 0, 8])
     }
     
-    @Test
-    func testUnit1() {
+    @Test func testUnit1() {
         
         // 2, 4, 3
         let node9 = ListNode()
@@ -170,9 +169,9 @@ struct 两数相加 {
         node199.next = node1999
         node1999.next = node19999
         
-        let ret = Solution().addTwoNumbers(node9, node19) // 预期 "7 0 8"
+        let ret = Solution0().addTwoNumbers(node9, node19) // 预期
         
-        #expect(ret != nil)
+        #expect(ret?.toList() == [8,9,9,9,0,0,0,1])
     }
     
     @Test

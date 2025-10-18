@@ -25,7 +25,7 @@ func logger(resolveName: String, funcName: String = #function, parameters: [Any?
 func showMarkdown(_ filePath: String) {
     var nFilePath = filePath
     nFilePath.replace("swift", with: "md")
-    print(nFilePath)
+//    print(nFilePath)
     let p = Process()
     p.executableURL = URL(fileURLWithPath: "/usr/bin/open")
     p.arguments = ["-a", "/Applications/Typora.app", nFilePath]
@@ -49,6 +49,17 @@ class ListNode: CustomStringConvertible {
     public init(_ val: Int) { self.val = val; self.next = nil; }
     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
     
+    // 辅助函数：将链表转为数组
+    func toList() -> [Int] {
+        var result: [Int] = []
+        var current: ListNode? = self
+        while current != nil {
+            result.append(current!.val)
+            current = current?.next
+        }
+        return result
+    }
+    
     var description: String {
         var next: ListNode? = self
         var ret = ""
@@ -60,7 +71,6 @@ class ListNode: CustomStringConvertible {
             ret = String(ret.prefix(ret.count - 4))
         }
         return ret
-    
     }
 }
 

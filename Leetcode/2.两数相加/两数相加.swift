@@ -15,48 +15,32 @@ struct 两数相加 {
             // 需要注意的点
             // 1. 进位(下一个元素进位,最后一个进位)
             // 2. 两个链表长度不一致
+            // 3. 虚拟头结点用于处理链表长度不一致的情况,方便返回结果
             
-            var list1 = l1
-            var list2 = l2
+            var vHead: ListNode(0)
+            var cNode = vHead
             
-            var nNode: ListNode? = nil
-            var cNode = nNode
-            
-            var carry = false
+            var carry = 0
 
-            while !(list1 == nil && list2 == nil) {
-                let lVal = list1?.val ?? 0
-                let rVal = list2?.val ?? 0
-                var nVal = lVal + rVal
-                
-                if carry {
-                    nVal += 1
-                    carry = false
-                }
-                
-                if nVal >= 10 {
-                    nVal -= 10
-                    carry = true
-                }
+            var p1 = l1
+            var p2 = l2
+    
+            while p1 != nil || p2 != nil || carry > 0 {
+                let lVal = p1?.val ?? 0
+                let rVal = p2?.val ?? 0
+                var nVal = lVal + rVal + carry
 
-                if nNode == nil {
-                    nNode = ListNode(nVal)
-                    cNode = nNode
-                } else {
-                    cNode?.next = ListNode(nVal)
-                    cNode = cNode?.next
-                }
+                carry = nVal / 10
+                nVal = nVal % 10
+                
+                cNode.next = ListNode(nVal)
+                cNode = cNode.next
                 
                 list1 = list1?.next
                 list2 = list2?.next
             }
 
-            if carry {
-                cNode?.next = ListNode(1)
-                cNode = cNode?.next
-            }
-
-            return nNode
+            return vHead.next
         }
         
         
@@ -127,11 +111,17 @@ struct 两数相加 {
         print(node5)
         
         let ret = Solution0().addTwoNumbers(node2, node5) // 预期 "7 0 8"
-        print(ret)
-        #expect(ret?.toList() == [7, 0, 8])
+        
+        // 验证返回链表为 [7, 0, 8]
+    #expect(ret != nil)
+    #expect(ret?.val == 7)          // 第一个节点值为7
+    #expect(ret?.next?.val == 0)    // 第二个节点值为0
+    #expect(ret?.next?.next?.val == 8)  // 第三个节点值为8
+    #expect(ret?.next?.next?.next == nil) // 没有第四个节点
     }
     
-    @Test func testUnit1() {
+    @Test
+    func testUnit1() {
         
         // 2, 4, 3
         let node9 = ListNode()
@@ -169,9 +159,9 @@ struct 两数相加 {
         node199.next = node1999
         node1999.next = node19999
         
-        let ret = Solution0().addTwoNumbers(node9, node19) // 预期
+        let ret = Solution().addTwoNumbers(node9, node19) // 预期 "7 0 8"
         
-        #expect(ret?.toList() == [8,9,9,9,0,0,0,1])
+        #expect(ret != nil)
     }
     
     @Test

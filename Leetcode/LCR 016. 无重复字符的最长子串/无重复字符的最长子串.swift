@@ -11,6 +11,23 @@ import Testing
 struct 无重复字符的最长子串 {
     // 设置一个map标识每个字符最新出现的位置
     // xd
+
+    class Solution0 {
+        
+        func lengthOfLongestSubstring(_ s: String) -> Int {
+            var dict: [String.Element: Int] = [:]
+            let strArr = Array(s)
+            var delta = 0
+            for (index, cha) in strArr.enumerated() {
+                if let idx = dict[cha] {
+                    delta = max(delta, index - idx)
+                }
+                dict[cha] = index
+            }
+            return delta
+        }
+        
+    }
     
     /// 方案一: Map 里面存某个字符上一个位置的下标
     class Solution1 {
@@ -57,20 +74,21 @@ struct 无重复字符的最长子串 {
     
     @Test func testUnit0() async throws {
         let s = "abcadbcbb"
-        let ret = Solution().lengthOfLongestSubstring(s)
-        logger(resolveName: String(describing: type(of: self)), parameters: [s], ret: ret)
-        #expect(ret == 3)
+        let ret = measureLogger(parameters: [s]) {
+            Solution0().lengthOfLongestSubstring(s)
+        }
+        #expect(ret == 4)
     }
     
     @Test func testUnit1() async throws {
-        let s = "abcadbcbb"
-        let ret = Solution1().lengthOfLongestSubstring(s)
-        logger(resolveName: String(describing: type(of: self)), parameters: [s], ret: ret)
+        let s = "abcabcbb"
+        let ret = measureLogger(parameters: [s]) {
+            Solution1().lengthOfLongestSubstring(s)
+        }
         #expect(ret == 3)
     }
     
-    @Test
-    func showProblem() async throws {
+    @Test func showProblem() async throws {
         showMarkdown(#filePath)
     }
 }

@@ -9,7 +9,8 @@ import Testing
 
 struct 反转字符串 {
     
-    class Solution1 {
+    // 交换0
+    class Solution0 {
         func reverseString(_ s: inout [Character]) {
             for i in 0..<(s.count / 2) {
                 let t = s[i]
@@ -19,25 +20,35 @@ struct 反转字符串 {
         }
     }
     
-    class Solution {
+    // 交换1
+    class Solution1 {
         func reverseString(_ s: inout [Character]) {
             for i in 0..<(s.count / 2) {
                 s.swapAt(i, s.count-i-1)
             }
         }
     }
+
+    // 标准库反转
+    class Solution2 {
+        func reverseString(_ s: inout [Character]) {
+            s.reverse()
+        }
+    }
     
     @Test func testUnit0() async throws {
         var s: [Character] = ["h","e","l","l","o"]
-        Solution().reverseString(&s) // 预期 "olleh"
-        logger(resolveName: String(describing: type(of: self)), parameters: [s], ret: s)
+        let ret = measureLogger(parameters: [s]) {
+            Solution0().reverseString(&s)
+        }
         #expect(s == ["o","l","l","e","h"])
     }
     
     @Test func testUnit1() async throws {
         var s: [Character] = ["h","e","l","l","o"]
-        Solution1().reverseString(&s) // 预期 "olleh"
-        logger(resolveName: String(describing: type(of: self)), parameters: [s], ret: s)
+        let ret = measureLogger(parameters: [s]) {
+            Solution1().reverseString(&s)
+        }
         #expect(s == ["o","l","l","e","h"])
     }
     

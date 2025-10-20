@@ -55,20 +55,23 @@ struct 两数之和 {
     }
 
     @Test func testUnit0() async throws {
-        let ret = Solution0().twoSum([2, 3, 4, 6], 5)
-        logger(resolveName: String(describing: type(of: self)), parameters: [[2, 3, 4, 6], 5], ret: ret)
+        let ret = measureLogger(parameters: [[2, 3, 4, 6], 5]) {
+            Solution0().twoSum([2, 3, 4, 6], 5)
+        }
         #expect(ret == [0, 1])
     }
     
     @Test func testUnit1() async throws {
-        let ret = Solution1().twoSum([2, 3, 4, 7], 5)
-        logger(resolveName: String(describing: type(of: self)), parameters: [[2, 3, 4, 7], 5], ret: ret)
+        let ret = measureLogger(parameters: [[2, 3, 4, 7], 5]) {
+            Solution1().twoSum([2, 3, 4, 7], 5)
+        }
         #expect(ret == [0, 1])
     }
     
     @Test func testUnit2() async throws {
-        let ret = Solution2().twoSum([2, 3, 4, 7], 6)
-        logger(resolveName: String(describing: type(of: self)), parameters: [[2, 3, 4, 7], 5], ret: ret)
+        let ret = measureLogger(parameters: [[2, 3, 4, 7], 6]) {
+            Solution2().twoSum([2, 3, 4, 7], 6)
+        }
         #expect(ret == [0, 2])
     }
     

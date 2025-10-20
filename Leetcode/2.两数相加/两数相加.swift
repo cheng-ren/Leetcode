@@ -7,6 +7,7 @@
 
 import Testing
 
+@Suite(.serialized)
 struct 两数相加 {
     
     class Solution0 {
@@ -107,21 +108,14 @@ struct 两数相加 {
         node5.next = node6
         node6.next = node44
         
-        print(node2)
-        print(node5)
+        let ret = measureLogger(parameters: [node2, node5]) {
+            Solution0().addTwoNumbers(node2, node5) // 预期 "7 0 8"
+        }
         
-        let ret = Solution0().addTwoNumbers(node2, node5) // 预期 "7 0 8"
-        
-        // 验证返回链表为 [7, 0, 8]
-    #expect(ret != nil)
-    #expect(ret?.val == 7)          // 第一个节点值为7
-    #expect(ret?.next?.val == 0)    // 第二个节点值为0
-    #expect(ret?.next?.next?.val == 8)  // 第三个节点值为8
-    #expect(ret?.next?.next?.next == nil) // 没有第四个节点
+        #expect(ret?.toList() == [7, 0, 8])
     }
     
-    @Test
-    func testUnit1() {
+    @Test func testUnit1() {
         
         // 2, 4, 3
         let node9 = ListNode()
@@ -159,12 +153,14 @@ struct 两数相加 {
         node199.next = node1999
         node1999.next = node19999
         
-        let ret = Solution().addTwoNumbers(node9, node19) // 预期 "7 0 8"
+        let ret = measureLogger(parameters: [node9, node19]) {
+            Solution().addTwoNumbers(node9, node19)
+        }
         
-        #expect(ret != nil)
+        #expect(ret?.toList() == [8,9,9,9,0,0,0,1])
     }
     
-    @Test
+    @Test(.disabled(if: canPrintProblem))
     func showProblem() async throws {
         showMarkdown(#filePath)
     }

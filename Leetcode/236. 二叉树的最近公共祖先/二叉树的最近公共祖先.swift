@@ -45,7 +45,7 @@ struct 二叉树的最近公共祖先 {
     class Solution1 {
         func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
             // 递归处理问题
-            
+            return nil
         }
     }
     

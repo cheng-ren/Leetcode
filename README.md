@@ -120,15 +120,6 @@ let result = measureLogger(parameters: [input]) {
 ==================================================
 ```
 
-### 3. 公共数据结构
-
-`Common.swift` 提供了常用的 Leetcode 数据结构：
-
-- **ListNode**：链表节点，支持美化打印（`1 -> 2 -> 3`）
-- **TreeNode**：二叉树节点，支持树形可视化打印
-- **measureLogger**：性能测量工具
-- **showMarkdown**：打开题目 Markdown 文档（支持 Typora）
-
 ## 📚 已完成题目
 
 | 题号 | 题目 | 难度 | 标签 |

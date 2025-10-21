@@ -41,11 +41,31 @@ struct 二叉树的最近公共祖先 {
         }
     }
     
-    /// 遍历
+    /// 递归
     class Solution1 {
         func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
-            // 递归处理问题
-            return nil
+            // 递归终止条件
+            // 1. 遇到空节点，返回 nil
+            // 2. 遇到 p 或 q，返回当前节点
+            guard let root = root else { return nil }
+            if root === p || root === q {
+                return root
+            }
+            
+            // 递归查找左右子树
+            let left = lowestCommonAncestor(root.left, p, q)
+            let right = lowestCommonAncestor(root.right, p, q)
+            
+            // 根据左右子树的返回值判断
+            if left != nil && right != nil {
+                // 左右都找到了，说明 p 和 q 分别在左右子树
+                // 当前节点就是最近公共祖先
+                return root
+            }
+            
+            // 只有一边找到，返回找到的那一边
+            // 如果都没找到，返回 nil
+            return left != nil ? left : right
         }
     }
     

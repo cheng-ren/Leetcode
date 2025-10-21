@@ -1,105 +1,14 @@
 //
-//  Common.swift
+//  TreeNode.swift
 //  LeetcodeTest
 //
-//  Created by 任成 on 2025/10/17.
+//  Created by yiche on 2025/10/20.
 //
 
 import Foundation
 
-let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != nil
 
-func measureLogger<R>(
-    function: String = #function,
-    file: String = #file,
-    parameters: [Any?]?,
-    execute: () -> R
-) -> R {
-    let start = CFAbsoluteTimeGetCurrent()
-    let result = execute()
-    let timeElapsed = CFAbsoluteTimeGetCurrent() - start
-    
-    let fileName = (file as NSString).lastPathComponent.replacingOccurrences(of: ".swift", with: "")
-    
-    print("\n" + String(repeating: "=", count: 50))
-    print("📝 题目: \(fileName)")
-    print("🔧 方法: \(function)")
-    if let params = parameters, !params.isEmpty {
-        print("📥 参数:")
-        for (index, param) in params.enumerated() {
-            print("   [\(index)]: \(param ?? "nil")")
-        }
-    }
-    print("📤 结果: \(result)")
-    print("⏱️  耗时: \(String(format: "%.6f", timeElapsed))秒")
-    print(String(repeating: "=", count: 50) + "\n")
-    
-    return result
-}
-
-
-func showMarkdown(_ filePath: String) {
-    var nFilePath = filePath
-    nFilePath.replace("swift", with: "md")
-//    print(nFilePath)
-    let p = Process()
-    p.executableURL = URL(fileURLWithPath: "/usr/bin/open")
-    p.arguments = ["-a", "/Applications/Typora.app", nFilePath]
-    
-    try? p.run()
-    p.waitUntilExit() // 阻塞等待执行完毕
-    let status = p.terminationStatus
-    
-    if status != 0 {
-        let p = Process()
-        p.executableURL = URL(fileURLWithPath: "/usr/bin/open")
-        p.arguments = [nFilePath]
-        try? p.run()
-    }
-}
-
-class ListNode: CustomStringConvertible, Equatable, Hashable {
-    
-    public var val: Int
-    public var next: ListNode?
-    public init() { self.val = 0; self.next = nil; }
-    public init(_ val: Int) { self.val = val; self.next = nil; }
-    public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
-    
-    // 辅助函数：将链表转为数组
-    func toList() -> [Int] {
-        var result: [Int] = []
-        var current: ListNode? = self
-        while current != nil {
-            result.append(current!.val)
-            current = current?.next
-        }
-        return result
-    }
-    
-    static func == (lhs: ListNode, rhs: ListNode) -> Bool {
-        return lhs === rhs
-    }
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(ObjectIdentifier(self))
-    }
-    
-    var description: String {
-        var next: ListNode? = self
-        var ret = ""
-        while next != nil {
-            ret += "\(next!.val) -> "
-            next = next!.next
-        }
-        if ret.hasSuffix(" -> ") {
-            ret = String(ret.prefix(ret.count - 4))
-        }
-        return ret
-    }
-}
-
-class TreeNode: CustomStringConvertible {
+class TreeNode {
     
     open var val: Int
     open var left: TreeNode?
@@ -112,12 +21,40 @@ class TreeNode: CustomStringConvertible {
         self.right = right
     }
     
+    static func makeTree(_ values: [Int?]) -> TreeNode? {
+        guard !values.isEmpty, let firstVal = values[0] else { return nil }
+        let root = TreeNode(firstVal)
+        var queue: [TreeNode] = [root]
+        var index = 1
+        
+        while !queue.isEmpty && index < values.count {
+            let node = queue.removeFirst()
+            
+            if index < values.count, let leftVal = values[index] {
+                node.left = TreeNode(leftVal)
+                queue.append(node.left!)
+            }
+            index += 1
+            
+            if index < values.count, let rightVal = values[index] {
+                node.right = TreeNode(rightVal)
+                queue.append(node.right!)
+            }
+            index += 1
+        }
+        
+        return root
+    }
+    
+}
+
+extension TreeNode: CustomStringConvertible {
+
     // 获取树高
     private func getHeight(_ node: TreeNode?) -> Int {
         guard let node = node else { return 0 }
         return 1 + max(getHeight(node.left), getHeight(node.right))
     }
-
     public var description: String {
         func buildLines(_ node: TreeNode?) -> [String] {
             guard let node = node else { return [] }

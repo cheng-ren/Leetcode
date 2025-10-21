@@ -9,6 +9,29 @@ import Foundation
 
 let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != nil
 
+
+//struct <#progremName#> {
+//    
+//    <#Solution#>
+//    
+//    @Test func testUnit0() async throws {
+//        let paramaters: [Any] = []
+//        let ret = measureLogger(parameters: paramaters) {
+//            Solution().<#function#>
+//        }
+//        #expect(ret, <#ret#>)
+//    }
+//    
+//    @Test func showProblem() async throws {
+//        showMarkdown(#filePath)
+//    }
+//}
+//
+//@Test func showProblem() async throws {
+//    showMarkdown(#filePath)
+//}
+
+
 func measureLogger<R>(
     function: String = #function,
     file: String = #file,

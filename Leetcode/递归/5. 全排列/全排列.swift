@@ -48,7 +48,7 @@ struct 全排列 {
             }
 
             path.removeLast()
-            visited[i] = false
+//            visited[i] = false
         }
     }
     

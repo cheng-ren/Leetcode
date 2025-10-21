@@ -11,7 +11,8 @@ import Testing
 let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != nil
 
 extension Tag {
-  @Tag static var 递归: Self
+    @Tag static var 递归: Self
+    @Tag static var 栈: Self
 }
 
 
@@ -37,7 +38,7 @@ func measureLogger<R>(
         }
     }
     print("📤 结果: \(result)")
-    print("⏱️  耗时: \(String(format: "%.6f", timeElapsed))秒")
+    print("⏱️ 耗时: \(String(format: "%.6f", timeElapsed))秒")
     print(String(repeating: "=", count: 50) + "\n")
     
     return result

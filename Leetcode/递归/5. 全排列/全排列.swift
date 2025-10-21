@@ -45,10 +45,13 @@ struct 全排列 {
             for i in 0..<nums.count {
                 if visited[i] { continue }
                 visited[i] = true
+                path.append(nums[i])
+                backtrack(nums, &path, &visited, &result)
+                path.removeLast()
+                visited[i] = false
             }
 
-            path.removeLast()
-//            visited[i] = false
+            
         }
     }
     

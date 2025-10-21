@@ -128,12 +128,3 @@ extension TreeNode: Hashable {
         hasher.combine(ObjectIdentifier(self))
     }
 }
-
-// 补充String移除行尾空格api
-extension String {
-    func rstrip() -> String {
-        guard let i = self.lastIndex(where: { $0 != " " }) else { return "" }
-        return String(self[...i])
-    }
-}
-

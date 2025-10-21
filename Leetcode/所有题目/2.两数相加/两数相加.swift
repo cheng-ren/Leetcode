@@ -18,7 +18,7 @@ struct 两数相加 {
             // 2. 两个链表长度不一致
             // 3. 虚拟头结点用于处理链表长度不一致的情况,方便返回结果
             
-            var vHead = ListNode(0)
+            let vHead = ListNode(0)
             var cNode = vHead
             
             var carry = 0

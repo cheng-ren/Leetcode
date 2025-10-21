@@ -63,3 +63,25 @@ func showMarkdown(_ filePath: String) {
         try? p.run()
     }
 }
+
+
+//struct <#progremName#> {
+//    
+//    <#Solution#>
+//    
+//    @Test func testUnit0() async throws {
+//        let paramaters: [Any] = []
+//        let ret = measureLogger(parameters: paramaters) {
+//            Solution().<#function#>
+//        }
+//        #expect(ret, <#ret#>)
+//    }
+//    
+//    @Test func showProblem() async throws {
+//        showMarkdown(#filePath)
+//    }
+//}
+//
+//@Test func showProblem() async throws {
+//    showMarkdown(#filePath)
+//}

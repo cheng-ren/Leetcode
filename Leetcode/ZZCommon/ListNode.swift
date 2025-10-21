@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class ListNode {
     
     public var val: Int

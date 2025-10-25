@@ -10,6 +10,7 @@ import Testing
 
 // 输入: temperatures = [73,74,75,71,69,72,76,73]
 // 输出: [1,1,4,2,1,1,0,0]
+@Suite(.tags(.栈, .递归))
 struct 每日温度 {
     
     // MARK: - 方案1：单调栈（最优解）
@@ -53,25 +54,42 @@ struct 每日温度 {
             return [targetIndex] + dailyTemperatures(Array(temperatures[1...]))
         }
     }
+    
+    class Solution2 {
+        func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
+            var stack: [Int] = []
+            var result: [Int] = Array(repeating: 0, count: temperatures.count)
+            
+            for i in 0..<temperatures.count {
+                while !stack.isEmpty && temperatures[i] > temperatures[stack.last!] {
+                    let prevIndex = stack.removeLast()
+                    result[prevIndex] = i - prevIndex
+                }
+                stack.append(i)
+            }
+            
+            return result
+        }
+    }
 
     // MARK: 测试用例
     
     @Test func testUnit0() async throws {
         let temperatures = [73,74,75,71,69,72,76,73]
         let ret = measureLogger(parameters: [temperatures]) {
-            Solution0().dailyTemperatures(temperatures)
+            Solution2().dailyTemperatures(temperatures)
         }
         #expect(ret == [1,1,4,2,1,1,0,0])
     }
     
     @Test func testUnit1() async throws {
         let temperatures = [30,40,50,60]
-        #expect(Solution1().dailyTemperatures(temperatures) == [1,1,1,0])
+        #expect(Solution2().dailyTemperatures(temperatures) == [1,1,1,0])
     }
     
     @Test func testUnit2() async throws {
         let temperatures = [30,60,90]
-        #expect(Solution1().dailyTemperatures(temperatures) == [1,1,0])
+        #expect(Solution2().dailyTemperatures(temperatures) == [1,1,0])
     }
     
     // MARK: 展示问题描述

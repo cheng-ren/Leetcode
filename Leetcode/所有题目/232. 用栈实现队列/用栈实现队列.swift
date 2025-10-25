@@ -55,10 +55,62 @@ struct 用栈实现队列 {
     }
     
     
+    class MyQueue1 {
+        
+        var stackA: [Int]
+        var stackB: [Int]
+
+        init() {
+            stackA = []
+            stackB = []
+        }
+        
+        func push(_ x: Int) {
+            stackA.append(x)
+        }
+        
+        func pop() -> Int {
+            guard !stackA.isEmpty || !stackB.isEmpty else {
+                fatalError("数据为空")
+            }
+            if stackB.isEmpty {
+                while !stackA.isEmpty {
+                    stackB.append(stackA.removeLast())
+                }
+            }
+            return stackB.removeLast()
+        }
+        
+        func peek() -> Int {
+            guard !stackA.isEmpty || !stackB.isEmpty else {
+                fatalError("数据为空")
+            }
+            if stackB.isEmpty {
+                while !stackA.isEmpty {
+                    stackB.append(stackA.removeLast())
+                }
+            }
+            return stackB.last!
+        }
+        
+        func empty() -> Bool {
+            stackA.isEmpty && stackB.isEmpty
+        }
+    }
+
+    /**
+     * Your MyQueue object will be instantiated and called as such:
+     * let obj = MyQueue()
+     * obj.push(x)
+     * let ret_2: Int = obj.pop()
+     * let ret_3: Int = obj.peek()
+     * let ret_4: Bool = obj.empty()
+     */
+    
     @Test func testUnit0() async throws {
         
         let ret = measureLogger(parameters: [1]) {
-            let obj = MyQueue()
+            let obj = MyQueue1()
             obj.push(1)
             obj.push(2)
             let ret_2: Int = obj.pop()

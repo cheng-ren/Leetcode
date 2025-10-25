@@ -43,12 +43,53 @@ struct 有效的括号 {
         }
     }
     
+    /// 练习 25-10-21 05':40"
+    class Solution1 {
+        func isValid(_ s: String) -> Bool {
+            let pairs: [Character: Character] = [
+                "]": "[",
+                ")": "(",
+                "}": "{",
+            ]
+            
+            var stack: [Character] = []
+            
+            for char in s {
+                if pairs[char] != nil {
+                    if stack.isEmpty || stack.last != pairs[char] {
+                        return false
+                    }
+                    let _ = stack.popLast()
+                } else {
+                    stack.append(char)
+                }
+            }
+            return true
+        }
+    }
+    
     @Test func testUnit0() async throws {
         let paramater = "()[]{}"
         let ret = measureLogger(parameters: [paramater]) {
-            Solution0().isValid(paramater)
+            Solution1().isValid(paramater)
         }
         #expect(ret == true)
+    }
+    
+    @Test func testUnit1() async throws {
+        let paramater = "([])"
+        let ret = measureLogger(parameters: [paramater]) {
+            Solution1().isValid(paramater)
+        }
+        #expect(ret == true)
+    }
+    
+    @Test func testUnit2() async throws {
+        let paramater = "([)]"
+        let ret = measureLogger(parameters: [paramater]) {
+            Solution1().isValid(paramater)
+        }
+        #expect(ret == false)
     }
     
     @Test func showProblem() async throws {

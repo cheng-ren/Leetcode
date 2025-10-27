@@ -48,21 +48,27 @@ struct 下一个更大元素I {
         }
     }
     
+    //  输入：nums1 = [4,1,2], nums2 = [1,3,4,2].
+    //  输出：[-1,3,-1]
+    //  解释：nums1 中每个值的下一个更大元素如下所述：
+    //  - 4 ，nums2 = [1,3,4,2]。不存在下一个更大元素，所以答案是 -1 。
+    //  - 1 ，nums2 = [1,3,4,2]。下一个更大元素是 3 。
+    //  - 2 ，nums2 = [1,3,4,2]。不存在下一个更大元素，所以答案是 -1 。
     class SolutionTrain {
         func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
-            var stack: [Int] = []
             var map: [Int: Int] = [:]
-            
+            var stack: [Int] = []
             for i in stride(from: nums2.count - 1, through: 0, by: -1) {
                 let num = nums2[i]
                 while !stack.isEmpty && stack.last! <= num {
                     stack.removeLast()
                 }
-                map[num] = stack.isEmpty ? -1 : stack.last
+                map[num] = stack.isEmpty ? -1 : stack.last!
                 stack.append(num)
             }
             return nums1.map { map[$0] ?? -1 }
         }
+    
     }
 
     @Test func testUnit0() {

@@ -25,7 +25,17 @@ struct 下一个更大元素II {
     // 空间复杂度：O(n)
     class Solution {
         func nextGreaterElements(_ nums: [Int]) -> [Int] {
-            
+            var stack: [Int] = []
+            var ret: [Int] = Array(repeating: -1, count: nums.count)
+            for i in stride(from: nums.count * 2, through: 0, by: -1) {
+                let num = nums[i % nums.count]
+                while !stack.isEmpty && stack.last! <= num {
+                    stack.removeLast()
+                }
+                ret[i % nums.count] = stack.isEmpty ? -1 : stack.last!
+                stack.append(num)
+            }
+            return ret
         }
     }
     

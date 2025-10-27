@@ -68,10 +68,29 @@ struct 有效的括号 {
         }
     }
     
+    class SolutionTrain {
+        func isValid(_ s: String) -> Bool {
+            let pairs: [Character: Character] = [
+                "]":"[",
+                ")":"(",
+                "}":"{"
+            ]
+            var stack: [Character] = []
+            for char in s {
+                if !stack.isEmpty && stack.last! == pairs[char] {
+                    stack.removeLast()
+                } else {
+                    stack.append(char)
+                }
+            }
+            return stack.isEmpty
+        }
+    }
+    
     @Test func testUnit0() async throws {
         let paramater = "()[]{}"
         let ret = measureLogger(parameters: [paramater]) {
-            Solution1().isValid(paramater)
+            SolutionTrain().isValid(paramater)
         }
         #expect(ret == true)
     }
@@ -79,7 +98,7 @@ struct 有效的括号 {
     @Test func testUnit1() async throws {
         let paramater = "([])"
         let ret = measureLogger(parameters: [paramater]) {
-            Solution1().isValid(paramater)
+            SolutionTrain().isValid(paramater)
         }
         #expect(ret == true)
     }
@@ -87,7 +106,7 @@ struct 有效的括号 {
     @Test func testUnit2() async throws {
         let paramater = "([)]"
         let ret = measureLogger(parameters: [paramater]) {
-            Solution1().isValid(paramater)
+            SolutionTrain().isValid(paramater)
         }
         #expect(ret == false)
     }

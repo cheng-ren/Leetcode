@@ -13,6 +13,7 @@ let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != 
 extension Tag {
     @Tag static var 递归: Self
     @Tag static var 栈: Self
+    @Tag static var 哈希表: Self
 }
 
 
@@ -46,6 +47,8 @@ func measureLogger<R>(
 
 
 func showMarkdown(_ filePath: String) {
+    guard canPrintProblem else { return }
+    
     var nFilePath = filePath
     nFilePath.replace("swift", with: "md")
 //    print(nFilePath)

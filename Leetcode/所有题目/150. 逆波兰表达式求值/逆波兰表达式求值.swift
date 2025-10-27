@@ -81,10 +81,38 @@ struct 逆波兰表达式求值 {
         }
     }
     
+    // 输入：tokens = ["2","1","+","3","*"]
+    // 输出：9
+    // 解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) = 9
+    class SolutionTrain {
+        func evalRPN(_ tokens: [String]) -> Int {
+            let oper: Set<Character> = [ "+", "-", "*", "/" ]
+            var stack: [Int] = []
+            for token in tokens {
+                if oper.contains(token) {
+                    let operNumR = stack.popLast()!
+                    let operNumL = stack.popLast()!
+                    var ret = 0
+                    switch token {
+                    case "+": ret = operNumL + operNumR
+                    case "-": ret = operNumL - operNumR
+                    case "*": ret = operNumL * operNumR
+                    case "/": ret = operNumL / operNumR
+                    default: break
+                    }
+                    stack.append(ret)
+                } else {
+                    stack.append(Int(token) ?? 0)
+                }
+            }
+            return stack.last!
+        }
+    }
+    
     @Test func testUnit0() async throws {
         let paramaters = ["2","1","+","3","*"]
         let ret = measureLogger(parameters: paramaters) {
-            Solution1().evalRPN(paramaters)
+            SolutionTrain().evalRPN(paramaters)
         }
         #expect(ret == 9)
     }
@@ -100,7 +128,7 @@ struct 逆波兰表达式求值 {
         //        = 17 + 5
         //        = 22
         let ret = measureLogger(parameters: paramaters) {
-            Solution1().evalRPN(paramaters)
+            SolutionTrain().evalRPN(paramaters)
         }
         #expect(ret == 22)
     }

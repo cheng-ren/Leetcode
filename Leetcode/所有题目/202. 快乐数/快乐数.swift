@@ -54,22 +54,27 @@ struct 快乐数 {
     class SolutionTrain {
         
         func isHappy(_ n: Int) -> Bool {
-            func bitSquareSum(_ n: Int) -> Int {
+            func calcSquareSum(_ n: Int) -> Int {
                 var tmp = n
                 var sum = 0
                 while tmp > 0 {
-                    sum += ((tmp % 10) * (tmp % 10))
+                    let num = tmp % 10
+                    sum += (num * num)
                     tmp /= 10
                 }
                 return sum
             }
-            let sum = bitSquareSum(n)
-            
-            if sum == 1 { return true }
+            var map: [Int: Int] = [:]
             
             var tmp = n
-            while n != 1 {
-                tmp = bitSquareSum(tmp)
+            while tmp != 1 {
+                if map[tmp] != nil {
+                    return false
+                } else {
+                    let t = calcSquareSum(tmp)
+                    map[tmp] = t
+                    tmp = t
+                }
             }
             
             return true

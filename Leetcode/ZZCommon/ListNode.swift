@@ -35,7 +35,31 @@ class ListNode {
             curr = curr.next!
         }
         return dummy.next
+    }
+    
+    // 辅助函数：创建环形链表
+    // pos: 表示尾节点连接到链表中第几个节点（从0开始），-1表示无环
+    static func makeListWithCycle(_ values: [Int], pos: Int) -> ListNode? {
+        guard !values.isEmpty else { return nil }
         
+        let dummy = ListNode(0)
+        var curr = dummy
+        var nodes: [ListNode] = []
+        
+        // 创建链表并保存所有节点
+        for val in values {
+            let node = ListNode(val)
+            curr.next = node
+            curr = node
+            nodes.append(node)
+        }
+        
+        // 如果pos有效，创建环
+        if pos >= 0 && pos < nodes.count {
+            curr.next = nodes[pos]
+        }
+        
+        return dummy.next
     }
     
 }

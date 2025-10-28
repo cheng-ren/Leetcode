@@ -41,17 +41,36 @@ struct 有效的字母异位词 {
             return map.isEmpty
         }
     }
+    
+    
+    class SolutionTrain {
+        func isAnagram(_ s: String, _ t: String) -> Bool {
+            var map: [Character: Int] = [:]
+            for char in s {
+                map[char, default: 0] += 1
+            }
+            for char in t {
+                guard map[char] != nil else { return false }
+                if map[char]! == 1 {
+                    map.removeValue(forKey: char)
+                } else {
+                    map[char]! -= 1
+                }
+            }
+            return map.isEmpty
+        }
+    }
 
     @Test func testUnit0() {
         let ret = measureLogger(parameters: ["anagram", "nagaram"]) {
-            Solution().isAnagram("anagram", "nagaram")
+            SolutionTrain().isAnagram("anagram", "nagaram")
         }
         #expect(ret == true)
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: ["rat", "car"]) {
-            Solution().isAnagram("rat", "car")
+            SolutionTrain().isAnagram("rat", "car")
         }
         #expect(ret == false)
     }

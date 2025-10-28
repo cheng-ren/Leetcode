@@ -11,10 +11,13 @@ import Testing
 let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != nil
 
 extension Tag {
+    /// 解决思路
     @Tag static var 递归: Self
+    @Tag static var 双指针: Self
     
     /// 数据结构
     @Tag static var 栈: Self
+    @Tag static var 队列: Self
     @Tag static var 哈希表: Self
     @Tag static var 链表: Self
     @Tag static var 字符串: Self

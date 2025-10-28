@@ -39,17 +39,32 @@ struct 两个数组的交集 {
             return []
         }
     }
+    
+    class SolutionTrain {
+        func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+            let (smallSet, largeSet) = nums1.count > nums2.count ? (Set(nums2), Set(nums1)) : (Set(nums1), Set(nums2))
+            
+            var result: [Int] = []
+            for it in smallSet {
+                if largeSet.contains(it) {
+                    result.append(it)
+                }
+            }
+            
+            return result
+        }
+    }
 
     @Test func testUnit0() {
         let ret = measureLogger(parameters: [[1,2,2,1], [2,2]]) {
-            Solution().intersection([1,2,2,1], [2,2])
+            SolutionTrain().intersection([1,2,2,1], [2,2])
         }
         #expect(ret.sorted() == [2])
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: [[4,9,5], [9,4,9,8,4]]) {
-            Solution().intersection([4,9,5], [9,4,9,8,4])
+            SolutionTrain().intersection([4,9,5], [9,4,9,8,4])
         }
         #expect(ret.sorted() == [4,9])
     }

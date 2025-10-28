@@ -113,9 +113,9 @@ struct 用栈实现队列 {
             let obj = MyQueue1()
             obj.push(1)
             obj.push(2)
-            let ret_2: Int = obj.pop()
-            let ret_3: Int = obj.peek()
-            let ret_4: Bool = obj.empty()
+            let _: Int = obj.pop()
+            let _: Int = obj.peek()
+            let _: Bool = obj.empty()
             let ret_5: Bool = obj.empty()
             return ret_5
         }

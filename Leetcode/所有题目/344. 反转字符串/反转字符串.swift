@@ -7,6 +7,7 @@
 
 import Testing
 
+@Suite(.tags(.字符串))
 struct 反转字符串 {
     
     // 交换0
@@ -38,7 +39,7 @@ struct 反转字符串 {
     
     @Test func testUnit0() async throws {
         var s: [Character] = ["h","e","l","l","o"]
-        let ret = measureLogger(parameters: [s]) {
+        let _ = measureLogger(parameters: [s]) {
             Solution0().reverseString(&s)
         }
         #expect(s == ["o","l","l","e","h"])
@@ -46,7 +47,7 @@ struct 反转字符串 {
     
     @Test func testUnit1() async throws {
         var s: [Character] = ["h","e","l","l","o"]
-        let ret = measureLogger(parameters: [s]) {
+        let _ = measureLogger(parameters: [s]) {
             Solution1().reverseString(&s)
         }
         #expect(s == ["o","l","l","e","h"])

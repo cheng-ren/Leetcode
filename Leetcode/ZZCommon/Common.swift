@@ -12,9 +12,13 @@ let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != 
 
 extension Tag {
     @Tag static var 递归: Self
+    
+    /// 数据结构
     @Tag static var 栈: Self
     @Tag static var 哈希表: Self
     @Tag static var 链表: Self
+    @Tag static var 字符串: Self
+    @Tag static var 树: Self
 }
 
 

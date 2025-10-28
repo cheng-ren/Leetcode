@@ -8,6 +8,7 @@
 import Foundation
 import Testing
 
+@Suite(.tags(.链表))
 struct 相交链表 {
     ///
     class Solution0 {

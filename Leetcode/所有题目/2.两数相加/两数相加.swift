@@ -7,10 +7,10 @@
 
 import Testing
 
-@Suite(.serialized)
+@Suite(.serialized, .tags(.链表))
 struct 两数相加 {
     
-    class Solution0 {
+    class Solution {
         
         func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
             // 需要注意的点
@@ -47,7 +47,7 @@ struct 两数相加 {
         
     }
     
-    class Solution {
+    class SolutionTrain {
         
         func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
             
@@ -109,7 +109,7 @@ struct 两数相加 {
         node6.next = node44
         
         let ret = measureLogger(parameters: [node2, node5]) {
-            Solution0().addTwoNumbers(node2, node5) // 预期 "7 0 8"
+            SolutionTrain().addTwoNumbers(node2, node5) // 预期 "7 0 8"
         }
         
         #expect(ret?.toList() == [7, 0, 8])
@@ -154,7 +154,7 @@ struct 两数相加 {
         node1999.next = node19999
         
         let ret = measureLogger(parameters: [node9, node19]) {
-            Solution().addTwoNumbers(node9, node19)
+            SolutionTrain().addTwoNumbers(node9, node19)
         }
         
         #expect(ret?.toList() == [8,9,9,9,0,0,0,1])

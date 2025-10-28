@@ -8,9 +8,10 @@
 import Foundation
 import Testing
 
+@Suite(.tags(.字符串))
 class 最长公共前缀 {
     // 思路:
-    class Solution1 {
+    class Solution {
         /// 自己写的
         func longestCommonPrefix(_ strs: [String]) -> String {
             guard strs.count > 0 else { return "" }
@@ -27,7 +28,15 @@ class 最长公共前缀 {
         }
     }
     
-    class Solution {
+    /// 利用标准库方法
+    class Solution1 {
+        func longestCommonPrefix(_ strs: [String]) -> String {
+            guard let first = strs.min(), let last = strs.max() else { return "" }
+            return first.commonPrefix(with: last, options: .literal)
+        }
+    }
+    
+    class SolutionTrain {
         func longestCommonPrefix(_ strs: [String]) -> String {
             guard let first = strs.min(), let last = strs.max() else { return "" }
             var (i, j) = (first.startIndex, last.startIndex)
@@ -37,14 +46,6 @@ class 最长公共前缀 {
                 last.formIndex(after: &j)
             }
             return first.substring(to: i)
-        }
-    }
-    
-    /// 利用标准库方法
-    class Solution2 {
-        func longestCommonPrefix(_ strs: [String]) -> String {
-            guard let first = strs.min(), let last = strs.max() else { return "" }
-            return first.commonPrefix(with: last, options: .literal)
         }
     }
     

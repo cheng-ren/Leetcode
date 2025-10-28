@@ -19,7 +19,7 @@ struct 有效的括号 {
     ///  - 如果不匹配或栈为空，立即返回 false
     ///  - 出栈
     /// 遍历结束后：检查栈是否为空
-    class Solution0 {
+    class Solution {
         func isValid(_ s: String) -> Bool {
             let pairs: [Character: Character] = [
                 "]": "[",
@@ -40,31 +40,6 @@ struct 有效的括号 {
                 }
             }
             return stack.isEmpty
-        }
-    }
-    
-    /// 练习 25-10-21 05':40"
-    class Solution1 {
-        func isValid(_ s: String) -> Bool {
-            let pairs: [Character: Character] = [
-                "]": "[",
-                ")": "(",
-                "}": "{",
-            ]
-            
-            var stack: [Character] = []
-            
-            for char in s {
-                if pairs[char] != nil {
-                    if stack.isEmpty || stack.last != pairs[char] {
-                        return false
-                    }
-                    let _ = stack.popLast()
-                } else {
-                    stack.append(char)
-                }
-            }
-            return true
         }
     }
     

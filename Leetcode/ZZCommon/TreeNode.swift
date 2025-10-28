@@ -76,7 +76,7 @@ extension TreeNode: CustomStringConvertible {
             let rightWidth = rightPadded.first?.count ?? 0
 
             // 当前行宽度
-            let lineWidth = leftWidth + nodeWidth + rightWidth
+            let _ = leftWidth + nodeWidth + rightWidth
 
             // 第一行 居中输出当前节点
             let firstLine = String(repeating: " ", count: leftWidth) + valStr + String(repeating: " ", count: rightWidth)

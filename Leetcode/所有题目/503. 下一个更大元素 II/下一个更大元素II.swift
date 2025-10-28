@@ -39,40 +39,32 @@ struct 下一个更大元素II {
         }
     }
     
-//    class SolutionTrain {
-//        func nextGreaterElements(_ nums: [Int]) -> [Int] {
-//            let n = nums.count
-//            var result = Array(repeating: -1, count: n)
-//            var stack: [Int] = []
-//            
-//            for i in 0..<(n * 2) {
-//                let index = i % n
-//                let num = nums[index]
-//                
-//                while !stack.isEmpty && nums[stack.last!] < num {
-//                    let prevIndex = stack.removeLast()
-//                    result[prevIndex] = num
-//                }
-//                
-//                if i < n {
-//                    stack.append(index)
-//                }
-//            }
-//            
-//            return result
-//        }
-//    }
+    class SolutionTrain {
+        func nextGreaterElements(_ nums: [Int]) -> [Int] {
+            var stack: [Int] = []
+            var result: [Int] = Array(repeating: -1, count: nums.count)
+            for i in stride(from: nums.count * 2 - 1, through: 0, by: -1) {
+                let num = nums[i % nums.count]
+                while !stack.isEmpty && stack.last! <= num {
+                    stack.removeLast()
+                }
+                result[i % nums.count] = stack.isEmpty ? -1 : stack.last!
+                stack.append(num)
+            }
+            return result
+        }
+    }
 
     @Test func testUnit0() {
         let ret = measureLogger(parameters: [[1, 2, 1]]) {
-            Solution().nextGreaterElements([1, 2, 1])
+            SolutionTrain().nextGreaterElements([1, 2, 1])
         }
         #expect(ret == [2, -1, 2])
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: [[1, 2, 3, 4, 3]]) {
-            Solution().nextGreaterElements([1, 2, 3, 4, 3])
+            SolutionTrain().nextGreaterElements([1, 2, 3, 4, 3])
         }
         #expect(ret == [2, 3, 4, -1, 4])
     }

@@ -38,24 +38,38 @@ struct 删除字符串中的所有相邻重复项 {
             return String(stack)
         }
     }
+    
+    class SolutionTrain {
+        func removeDuplicates(_ s: String) -> String {
+            var stack: [Character] = []
+            for char in s {
+                if !stack.isEmpty && stack.last! == char {
+                    stack.removeLast()
+                } else {
+                    stack.append(char)
+                }
+            }
+            return String(stack)
+        }
+    }
 
     @Test func testUnit0() {
         let ret = measureLogger(parameters: ["abbaca"]) {
-            Solution().removeDuplicates("abbaca")
+            SolutionTrain().removeDuplicates("abbaca")
         }
         #expect(ret == "ca")
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: ["azxxzy"]) {
-            Solution().removeDuplicates("azxxzy")
+            SolutionTrain().removeDuplicates("azxxzy")
         }
         #expect(ret == "ay")
     }
     
     @Test func testUnit2() {
         let ret = measureLogger(parameters: ["aaaaaa"]) {
-            Solution().removeDuplicates("aaaaaa")
+            SolutionTrain().removeDuplicates("aaaaaa")
         }
         #expect(ret == "")
     }

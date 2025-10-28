@@ -50,24 +50,49 @@ struct 快乐数 {
             return true
         }
     }
+    
+    class SolutionTrain {
+        
+        func isHappy(_ n: Int) -> Bool {
+            func bitSquareSum(_ n: Int) -> Int {
+                var tmp = n
+                var sum = 0
+                while tmp > 0 {
+                    sum += ((tmp % 10) * (tmp % 10))
+                    tmp /= 10
+                }
+                return sum
+            }
+            let sum = bitSquareSum(n)
+            
+            if sum == 1 { return true }
+            
+            var tmp = n
+            while n != 1 {
+                tmp = bitSquareSum(tmp)
+            }
+            
+            return true
+        }
+    }
 
     @Test func testUnit0() {
         let ret = measureLogger(parameters: [19]) {
-            Solution().isHappy(19)
+            SolutionTrain().isHappy(19)
         }
         #expect(ret == true)
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: [2]) {
-            Solution().isHappy(2)
+            SolutionTrain().isHappy(2)
         }
         #expect(ret == false)
     }
     
     @Test func testUnit2() {
         let ret = measureLogger(parameters: [1]) {
-            Solution().isHappy(1)
+            SolutionTrain().isHappy(1)
         }
         #expect(ret == true)
     }

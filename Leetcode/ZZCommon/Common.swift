@@ -14,6 +14,7 @@ extension Tag {
     @Tag static var 递归: Self
     @Tag static var 栈: Self
     @Tag static var 哈希表: Self
+    @Tag static var 链表: Self
 }
 
 

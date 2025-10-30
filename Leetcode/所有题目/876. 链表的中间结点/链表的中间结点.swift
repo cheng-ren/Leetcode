@@ -31,11 +31,24 @@ struct 链表的中间结点 {
             return slow
         }
     }
+    
+    class SolutionTrain {
+        func middleNode(_ head: ListNode?) -> ListNode? {
+            var slow = head
+            var fast = head
+            
+            while fast != nil && fast?.next != nil {
+                slow = slow?.next
+                fast = fast?.next?.next
+            }
+            return slow
+        }
+    }
 
     @Test func testUnit0() {
         let head = ListNode.makeList([1, 2, 3, 4, 5])
         let ret = measureLogger(parameters: [[1, 2, 3, 4, 5]]) {
-            Solution().middleNode(head)
+            SolutionTrain().middleNode(head)
         }
         #expect(ret?.val == 3)
     }
@@ -43,7 +56,7 @@ struct 链表的中间结点 {
     @Test func testUnit1() {
         let head = ListNode.makeList([1, 2, 3, 4, 5, 6])
         let ret = measureLogger(parameters: [[1, 2, 3, 4, 5, 6]]) {
-            Solution().middleNode(head)
+            SolutionTrain().middleNode(head)
         }
         #expect(ret?.val == 4)
     }

@@ -16,7 +16,7 @@ import Testing
 //  6² + 8² = 100
 //  1² + 0² + 0² = 1
 
-@Suite(.tags(.哈希表))
+@Suite(.tags(.哈希表, .快慢指针))
 struct 快乐数 {
     
     // MARK: - 哈希表
@@ -51,33 +51,34 @@ struct 快乐数 {
         }
     }
     
-    class SolutionTrain {
+    // MARK: - 快慢指针
+    class Solution2 {
         
         func isHappy(_ n: Int) -> Bool {
-            func calcSquareSum(_ n: Int) -> Int {
-                var tmp = n
+            func bitSquareSum(_ n: Int) -> Int {
+                var cur = n
                 var sum = 0
-                while tmp > 0 {
-                    let num = tmp % 10
-                    sum += (num * num)
-                    tmp /= 10
+                while cur > 0 {
+                    let sub = cur % 10
+                    sum += (sub * sub)
+                    cur = cur / 10
                 }
                 return sum
             }
-            var map: [Int: Int] = [:]
             
-            var tmp = n
-            while tmp != 1 {
-                if map[tmp] != nil {
-                    return false
-                } else {
-                    let t = calcSquareSum(tmp)
-                    map[tmp] = t
-                    tmp = t
-                }
+            var slow = n
+            var fast = bitSquareSum(n)
+            while fast != 1 && fast != slow {
+                slow = bitSquareSum(slow)
+                fast = bitSquareSum(bitSquareSum(fast))
             }
-            
-            return true
+            return fast == 1
+        }
+    }
+    class SolutionTrain {
+        
+        func isHappy(_ n: Int) -> Bool {
+            false
         }
     }
 

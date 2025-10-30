@@ -48,23 +48,8 @@ struct 合并两个有序链表 {
     
     class SolutionTrain {
         func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
-            var left = list1
-            var right = list2
-            let resultVHead = ListNode(Int.min)
-            var curr: ListNode = resultVHead
-            while left != nil && right != nil {
-                if left!.val < right!.val {
-                    curr.next = left
-                    curr = left!
-                    left = left?.next
-                } else {
-                    curr.next = right
-                    curr = right!
-                    right = right?.next
-                }
-            }
-            curr.next = left ?? right
-            return resultVHead.next
+            
+            return nil
         }
     }
 
@@ -75,15 +60,6 @@ struct 合并两个有序链表 {
             SolutionTrain().mergeTwoLists(l1, l2)
         }
         #expect(ret?.toList() == [1, 1, 2, 3, 4, 4])
-    }
-    
-    @Test func testUnit1() {
-        let l1 = ListNode.makeList([])
-        let l2 = ListNode.makeList([])
-        let ret = measureLogger(parameters: [[], []]) {
-            SolutionTrain().mergeTwoLists(l1, l2)
-        }
-        #expect(ret?.toList() == [])
     }
     
     @Test func testUnit2() {

@@ -25,6 +25,19 @@ struct 环形链表 {
         }
     }
     
+    class SolutionTrain {
+        func hasCycle(_ head: ListNode?) -> Bool {
+            var slow = head?.next
+            var fast = head?.next?.next
+            while slow?.next != nil && fast?.next?.next != nil {
+                if slow == fast { return true }
+                slow = slow?.next
+                fast = fast?.next?.next
+            }
+            return false
+        }
+    }
+    
     
     @Test("测试用例1：空链表") 
     func testEmptyList() async throws {

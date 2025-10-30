@@ -14,6 +14,7 @@ extension Tag {
     /// 解决思路
     @Tag static var 递归: Self
     @Tag static var 双指针: Self
+    @Tag static var 快慢指针: Self
     
     /// 数据结构
     @Tag static var 栈: Self

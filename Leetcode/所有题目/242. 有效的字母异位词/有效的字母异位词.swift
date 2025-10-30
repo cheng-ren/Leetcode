@@ -46,15 +46,15 @@ struct 有效的字母异位词 {
     class SolutionTrain {
         func isAnagram(_ s: String, _ t: String) -> Bool {
             var map: [Character: Int] = [:]
-            for char in s {
-                map[char, default: 0] += 1
+            for c in s {
+                map[c, default: 0] += 1
             }
-            for char in t {
-                guard map[char] != nil else { return false }
-                if map[char]! == 1 {
-                    map.removeValue(forKey: char)
+            for c in t {
+                if map[c] == nil { return false }
+                if map[c]! == 1 {
+                    map.removeValue(forKey: c)
                 } else {
-                    map[char]! -= 1
+                    map[c]! -= 1
                 }
             }
             return map.isEmpty

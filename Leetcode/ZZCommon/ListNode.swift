@@ -15,13 +15,28 @@ class ListNode {
     public init(_ val: Int) { self.val = val; self.next = nil; }
     public init(_ val: Int, _ next: ListNode?) { self.val = val; self.next = next; }
     
-    // 辅助函数：将链表转为数组
+    // 辅助函数：将链表转为数组（支持环形链表检测）
     func toList() -> [Int] {
         var result: [Int] = []
         var current: ListNode? = self
+        var visited: Set<ObjectIdentifier> = []
+        
         while current != nil {
+            let nodeId = ObjectIdentifier(current!)
+            
+            // 检测到环，停止遍历
+            if visited.contains(nodeId) {
+                break
+            }
+            
+            visited.insert(nodeId)
             result.append(current!.val)
             current = current?.next
+            
+            // 防止无限循环的安全措施
+            if result.count > 10000 {
+                break
+            }
         }
         return result
     }
@@ -66,15 +81,36 @@ class ListNode {
 
 extension ListNode: CustomStringConvertible {
     var description: String {
-        var next: ListNode? = self
+        var visited: [ObjectIdentifier: Int] = [:]  // 记录节点的位置
+        var current: ListNode? = self
         var ret = ""
-        while next != nil {
-            ret += "\(next!.val) -> "
-            next = next!.next
+        var position = 0
+        
+        while current != nil {
+            let nodeId = ObjectIdentifier(current!)
+            
+            // 检测到环
+            if let cyclePos = visited[nodeId] {
+                ret += "(cycle back to position \(cyclePos))"
+                break
+            }
+            
+            visited[nodeId] = position
+            ret += "\(current!.val)"
+            
+            current = current!.next
+            if current != nil {
+                ret += " -> "
+            }
+            position += 1
+            
+            // 防止无限循环的安全措施
+            if position > 10000 {
+                ret += "... (超过10000个节点，停止打印)"
+                break
+            }
         }
-        if ret.hasSuffix(" -> ") {
-            ret = String(ret.prefix(ret.count - 4))
-        }
+        
         return ret
     }
 }

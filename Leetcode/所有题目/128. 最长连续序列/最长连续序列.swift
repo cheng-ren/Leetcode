@@ -20,7 +20,7 @@ struct 最长连续序列 {
     // MARK: - 哈希表
     // 时间复杂度：O(n)
     // 空间复杂度：O(n)
-    class SolutionTrain {
+    class Solution {
         func longestConsecutive(_ nums: [Int]) -> Int {
             let set: Set<Int> = Set(nums)
             
@@ -32,6 +32,27 @@ struct 最长连续序列 {
                 while set.contains(t) {
                     t += 1
                     count += 1
+                }
+                maxLength = max(maxLength, count)
+            }
+            return maxLength
+        }
+    }
+    
+    class SolutionTrain {
+        func longestConsecutive(_ nums: [Int]) -> Int {
+            var map: [Int: Int] = [:]
+            for num in nums {
+                map[num] = 1
+            }
+            var maxLength = 1
+            for num in nums {
+                if map[num - 1] != nil { continue }
+                var cur = num
+                var count = 0
+                while map[cur] != nil {
+                    count += 1
+                    cur += 1
                 }
                 maxLength = max(maxLength, count)
             }

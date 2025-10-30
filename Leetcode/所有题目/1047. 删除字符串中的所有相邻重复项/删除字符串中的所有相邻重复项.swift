@@ -41,15 +41,7 @@ struct 删除字符串中的所有相邻重复项 {
     
     class SolutionTrain {
         func removeDuplicates(_ s: String) -> String {
-            var stack: [Character] = []
-            for char in s {
-                if !stack.isEmpty && stack.last! == char {
-                    stack.removeLast()
-                } else {
-                    stack.append(char)
-                }
-            }
-            return String(stack)
+            ""
         }
     }
 

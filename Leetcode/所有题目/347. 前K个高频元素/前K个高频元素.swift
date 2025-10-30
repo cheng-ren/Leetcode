@@ -51,28 +51,8 @@ struct 前K个高频元素 {
     
     class SolutionTrain {
         func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
-            var map: [Int: Int] = [:]
-            for num in nums {
-                map[num, default: 0] += 1
-            }
             
-            var buckets: [[Int]] = Array(repeating: [], count: nums.count + 1)
-            for (num, freq) in map {
-                buckets[freq].append(num)
-            }
-            
-            var result: [Int] = []
-            for i in stride(from: nums.count, through: 0, by: -1) {
-                guard result.count < k else { break }
-                if !buckets[i].isEmpty {
-                    result.append(contentsOf: buckets[i])
-                    if result.count > k {
-                        result = Array(result.prefix(k))
-                    }
-                }
-            }
-            
-            return result
+            return []
         }
     }
 

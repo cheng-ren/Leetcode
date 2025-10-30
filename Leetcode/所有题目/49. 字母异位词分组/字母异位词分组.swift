@@ -26,7 +26,7 @@ struct 字母异位词分组 {
                 let sortedStr = String(str.sorted())
                 map[sortedStr, default: []].append(str)
             }
-            return Array(map.values)  // 去掉了不必要的强制转换
+            return Array(map.values)
         }
     }
     
@@ -55,8 +55,8 @@ struct 字母异位词分组 {
         func groupAnagrams(_ strs: [String]) -> [[String]] {
             var map: [String: [String]] = [:]
             for str in strs {
-                let strBySorted = String(str.sorted())
-                map[strBySorted, default: []].append(str)
+                let sortedStr = String(str.sorted())
+                map[sortedStr, default: []].append(str)
             }
             return Array(map.values)
         }

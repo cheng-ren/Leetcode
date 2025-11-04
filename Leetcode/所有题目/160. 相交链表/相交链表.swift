@@ -61,13 +61,7 @@ struct 相交链表 {
 
     class SolutionTrain {
         func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
-            var left = headA
-            var right = headB
-            while left != right {
-                left = left == nil ? headB : left?.next
-                right = right == nil ? headA : right?.next
-            }
-            return left
+            nil
         }
     }
     

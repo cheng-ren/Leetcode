@@ -48,8 +48,7 @@ struct 合并两个有序链表 {
     
     class SolutionTrain {
         func mergeTwoLists(_ list1: ListNode?, _ list2: ListNode?) -> ListNode? {
-            
-            return nil
+            nil
         }
     }
 

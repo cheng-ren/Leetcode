@@ -45,19 +45,7 @@ struct 有效的字母异位词 {
     
     class SolutionTrain {
         func isAnagram(_ s: String, _ t: String) -> Bool {
-            var map: [Character: Int] = [:]
-            for c in s {
-                map[c, default: 0] += 1
-            }
-            for c in t {
-                if map[c] == nil { return false }
-                if map[c]! == 1 {
-                    map.removeValue(forKey: c)
-                } else {
-                    map[c]! -= 1
-                }
-            }
-            return map.isEmpty
+            false
         }
     }
 

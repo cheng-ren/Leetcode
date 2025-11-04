@@ -46,16 +46,7 @@ struct 反转链表 {
     
     class SolutionTrain {
         func reverseList(_ head: ListNode?) -> ListNode? {
-            var pre: ListNode? = nil
-            var cur = head
-            
-            while cur != nil {
-                let next = cur?.next
-                cur?.next = pre
-                pre = cur
-                cur = next
-            }
-            return pre
+            nil
         }
     }
     

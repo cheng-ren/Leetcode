@@ -34,8 +34,7 @@ struct 删除排序链表中的重复元素 {
     
     class SolutionTrain {
         func deleteDuplicates(_ head: ListNode?) -> ListNode? {
-            // TODO: 实现你的解决方案
-            return nil
+            nil
         }
     }
 

@@ -26,8 +26,7 @@ struct 和为K的子数组 {
     
     class SolutionTrain {
         func subarraySum(_ nums: [Int], _ k: Int) -> Int {
-            
-            return 0
+            0
         }
     }
 

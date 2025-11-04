@@ -51,8 +51,7 @@ struct 前K个高频元素 {
     
     class SolutionTrain {
         func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
-            
-            return []
+            []
         }
     }
 

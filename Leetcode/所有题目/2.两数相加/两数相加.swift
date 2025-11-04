@@ -48,42 +48,8 @@ struct 两数相加 {
     }
     
     class SolutionTrain {
-        
         func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {
-            
-            let rNode = ListNode()
-            var cNode = rNode
-            
-            var carry = 0
-            
-            var lNext = l1
-            var rNext = l2
-            
-            while !(lNext == nil && rNext == nil) {
-                
-                var sum = (lNext?.val ?? 0) + (rNext?.val ?? 0) + carry
-                carry = 0
-                if sum >= 10 {
-                    sum -= 10
-                    carry += 1
-                }
-                
-                let sumNode = ListNode()
-                sumNode.val = sum
-                cNode.next = sumNode
-                
-                lNext = lNext?.next
-                rNext = rNext?.next
-                cNode = sumNode
-            }
-            
-            if carry > 0 {
-                let sumNode = ListNode()
-                sumNode.val = 1
-                cNode.next = sumNode
-            }
-            
-            return rNode.next
+            nil
         }
     }
     

@@ -41,22 +41,7 @@ struct 最长连续序列 {
     
     class SolutionTrain {
         func longestConsecutive(_ nums: [Int]) -> Int {
-            var map: [Int: Int] = [:]
-            for num in nums {
-                map[num] = 1
-            }
-            var maxLength = 1
-            for num in nums {
-                if map[num - 1] != nil { continue }
-                var cur = num
-                var count = 0
-                while map[cur] != nil {
-                    count += 1
-                    cur += 1
-                }
-                maxLength = max(maxLength, count)
-            }
-            return maxLength
+            0
         }
     }
 

@@ -41,17 +41,7 @@ struct 下一个更大元素II {
     
     class SolutionTrain {
         func nextGreaterElements(_ nums: [Int]) -> [Int] {
-            var stack: [Int] = []
-            var result: [Int] = Array(repeating: -1, count: nums.count)
-            for i in stride(from: nums.count * 2 - 1, through: 0, by: -1) {
-                let num = nums[i % nums.count]
-                while !stack.isEmpty && stack.last! <= num {
-                    stack.removeLast()
-                }
-                result[i % nums.count] = stack.isEmpty ? -1 : stack.last!
-                stack.append(num)
-            }
-            return result
+            []
         }
     }
 

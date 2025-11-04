@@ -59,16 +59,7 @@ struct 每日温度 {
     // 输出: [1,1,4,2,1,1,0,0]
     class SolutionTrain {
         func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
-            var stack: [Int] = []
-            var result: [Int] = Array(repeating: 0, count:temperatures.count)
-            for i in 0..<temperatures.count {
-                while !stack.isEmpty && temperatures[i] > temperatures[stack.last!] {
-                    let prevIndex = stack.removeLast()
-                    result[prevIndex] = i - prevIndex
-                }
-                stack.append(i)
-            }
-            return result
+            []
         }
     }
     

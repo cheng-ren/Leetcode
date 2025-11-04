@@ -25,23 +25,7 @@ struct 旋转链表 {
     
     class SolutionTrain {
         func rotateRight(_ head: ListNode?, _ k: Int) -> ListNode? {
-            guard head != nil else { return nil }
-            guard k > 0 && head?.next != nil else { return head }
-            var cur = head
-            var buckets: [ListNode] = []
-            while cur != nil {
-                buckets.append(cur!)
-                cur = cur?.next
-            }
-            let cnt = k % buckets.count
-            if cnt == 0 { return head }
-            
-            if cnt != 0 {
-                buckets[buckets.count - 1].next = buckets[0]
-            }
-            
-            buckets[buckets.count - cnt - 1].next = nil
-            return buckets[buckets.count - cnt]
+            nil
         }
     }
 

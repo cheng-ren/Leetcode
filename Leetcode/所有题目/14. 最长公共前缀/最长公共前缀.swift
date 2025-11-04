@@ -38,14 +38,7 @@ class 最长公共前缀 {
     
     class SolutionTrain {
         func longestCommonPrefix(_ strs: [String]) -> String {
-            guard let first = strs.min(), let last = strs.max() else { return "" }
-            var (i, j) = (first.startIndex, last.startIndex)
-            while i < first.endIndex, j < last.endIndex {
-                guard first[i] == last[j] else { break }
-                first.formIndex(after: &i)
-                last.formIndex(after: &j)
-            }
-            return first.substring(to: i)
+            ""
         }
     }
     

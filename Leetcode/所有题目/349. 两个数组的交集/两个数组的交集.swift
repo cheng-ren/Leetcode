@@ -26,17 +26,23 @@ struct 两个数组的交集 {
             return smallSet.filter { largeSet.contains($0) }
         }
     }
+    
+    class SolutionTrain {
+        func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
+            []
+        }
+    }
 
     @Test func testUnit0() {
         let ret = measureLogger(parameters: [[1,2,2,1], [2,2]]) {
-            Solution().intersection([1,2,2,1], [2,2])
+            SolutionTrain().intersection([1,2,2,1], [2,2])
         }
         #expect(ret.sorted() == [2])
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: [[4,9,5], [9,4,9,8,4]]) {
-            Solution().intersection([4,9,5], [9,4,9,8,4])
+            SolutionTrain().intersection([4,9,5], [9,4,9,8,4])
         }
         #expect(ret.sorted() == [4,9])
     }

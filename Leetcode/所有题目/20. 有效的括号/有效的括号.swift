@@ -43,22 +43,12 @@ struct 有效的括号 {
         }
     }
     
+    /// ()[]{}
+    /// true
+    
     class SolutionTrain {
         func isValid(_ s: String) -> Bool {
-            let pairs: [Character: Character] = [
-                "]":"[",
-                ")":"(",
-                "}":"{"
-            ]
-            var stack: [Character] = []
-            for char in s {
-                if !stack.isEmpty && stack.last! == pairs[char] {
-                    stack.removeLast()
-                } else {
-                    stack.append(char)
-                }
-            }
-            return stack.isEmpty
+            false
         }
     }
     

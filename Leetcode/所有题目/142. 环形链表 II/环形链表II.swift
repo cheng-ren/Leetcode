@@ -18,6 +18,8 @@ import Testing
 struct 环形链表II {
     
     // MARK: - 哈希表
+    // 时间复杂度：O(n)
+    // 空间复杂度：O(n)
     class Solution {
         func detectCycle(_ head: ListNode?) -> ListNode? {
             guard head != nil else { return nil }
@@ -35,27 +37,35 @@ struct 环形链表II {
     }
     
     // MARK: - 双指针
-    
-    class SolutionTrain {
+    // 时间复杂度：O(n)
+    // 空间复杂度：O(1)
+    class Solution1 {
         func detectCycle(_ head: ListNode?) -> ListNode? {
-            guard head != nil && head?.next != nil else { return nil }
             var slow = head
             var fast = head
-
-            repeat {
+            while fast != nil && fast?.next != nil {
                 slow = slow?.next
                 fast = fast?.next?.next
-            } while fast != nil && fast?.next != nil && fast !== slow
-            
+                if slow === fast { break }
+            } 
             if fast == nil || fast?.next == nil { return nil }
-            
-            fast = head
-            while fast !== slow {
-                fast = fast?.next
+            slow = head
+            while slow !== fast {
                 slow = slow?.next
+                fast = fast?.next
+            }
+            return slow
+        }
+    }
+
+    class SolutionTrain {
+        func detectCycle(_ head: ListNode?) -> ListNode? {
+            var slow = head
+            var fast = head
+            while fast != nil {
+                
             }
             
-            return slow
         }
     }
 

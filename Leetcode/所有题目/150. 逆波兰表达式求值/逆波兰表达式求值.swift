@@ -86,26 +86,7 @@ struct 逆波兰表达式求值 {
     // 解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) = 9
     class SolutionTrain {
         func evalRPN(_ tokens: [String]) -> Int {
-            let oper: Set<Character> = [ "+", "-", "*", "/" ]
-            var stack: [Int] = []
-            for token in tokens {
-                if oper.contains(token) {
-                    let operNumR = stack.popLast()!
-                    let operNumL = stack.popLast()!
-                    var ret = 0
-                    switch token {
-                    case "+": ret = operNumL + operNumR
-                    case "-": ret = operNumL - operNumR
-                    case "*": ret = operNumL * operNumR
-                    case "/": ret = operNumL / operNumR
-                    default: break
-                    }
-                    stack.append(ret)
-                } else {
-                    stack.append(Int(token) ?? 0)
-                }
-            }
-            return stack.last!
+            0
         }
     }
     

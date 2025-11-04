@@ -55,25 +55,19 @@ struct 相交链表 {
     // MARK: 双指针
     class Solution1 {
         func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
-            
-            var left = headA
-            var right = headB
-            
-            while left !== right {
-                // 关键：要让指针先变成 nil，然后再切换到另一个链表
-                left = left == nil ? headB : left?.next
-                right = right == nil ? headA : right?.next
-            }
-            
-            return left
+            nil
         }
     }
 
     class SolutionTrain {
         func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
-            
-            
-            return nil
+            var left = headA
+            var right = headB
+            while left != right {
+                left = left == nil ? headB : left?.next
+                right = right == nil ? headA : right?.next
+            }
+            return left
         }
     }
     

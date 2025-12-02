@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.链表, .递归))
+@Suite(.serialized, .tags(.链表, .递归, .迭代))
 struct 反转链表 {
     
     /// 递归方法（重点学习）
@@ -21,7 +21,6 @@ struct 反转链表 {
             head?.next?.next = head;
             head?.next = nil;
             return newHead;
-            
         }
     }
     

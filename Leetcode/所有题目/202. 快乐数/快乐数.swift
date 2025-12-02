@@ -75,6 +75,7 @@ struct 快乐数 {
             return fast == 1
         }
     }
+    
     class SolutionTrain {
         
         func isHappy(_ n: Int) -> Bool {

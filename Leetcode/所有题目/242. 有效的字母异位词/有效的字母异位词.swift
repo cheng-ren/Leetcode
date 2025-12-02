@@ -13,7 +13,7 @@ import Testing
 //  输出: true
 //  ```
 
-@Suite(.tags(.哈希表))
+@Suite(.tags(.字符串, .哈希表))
 struct 有效的字母异位词 {
     
     // MARK: - TODO: 实现你的解决方案

@@ -11,7 +11,9 @@ import Testing
 @Suite(.tags(.递归))
 struct 爬楼梯 {
     
-    /// 基础递归
+    // MARK: - 递归
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
     class Solution0 {
         func climbStairs(_ n: Int) -> Int {
             if n == 1 { return 1 }
@@ -21,10 +23,11 @@ struct 爬楼梯 {
         }
     }
     
-    /// 记忆化递归
+    // MARK: - 记忆化递归
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
     class Solution1 {
         func climbStairs(_ n: Int) -> Int {
-            // TODO: 实现记忆化递归
             var memo: [Int: Int] = [:]
             return climbWithMemo(n, &memo)
         }
@@ -47,32 +50,36 @@ struct 爬楼梯 {
         }
     }
     
-    /// 动态规划
-    class Solution2 {
+    // MARK: - 动态规划
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
+    class SolutionTrain {
         func climbStairs(_ n: Int) -> Int {
-            // TODO: 实现动态规划
-            // 提示：dp[i] 表示爬到第 i 阶的方法数
-            return 0
+            var dp: [Int] = [0, 1, 2]
+            for i in 3...n {
+                dp.append(dp[i-1] + dp[i-2])
+            }
+            return dp[n]
         }
     }
     
     @Test func testUnit0() {
         let ret = measureLogger(parameters: [3]) {
-            Solution0().climbStairs(3)
+            SolutionTrain().climbStairs(3)
         }
         #expect(ret == 3)
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: [5]) {
-            Solution1().climbStairs(5)
+            SolutionTrain().climbStairs(5)
         }
         #expect(ret == 8)
     }
     
     @Test func testUnit2() {
         let ret = measureLogger(parameters: [10]) {
-            Solution2().climbStairs(10)
+            SolutionTrain().climbStairs(10)
         }
         #expect(ret == 89)
     }
@@ -81,19 +88,3 @@ struct 爬楼梯 {
         showMarkdown(#filePath)
     }
 }
-
-/*
-学习提示：
-
-1. 问题分析：
-   - 要到达第 n 阶，可以从第 n-1 阶爬1阶，或从第 n-2 阶爬2阶
-   - 因此：f(n) = f(n-1) + f(n-2)
-
-2. 与斐波那契的关系：
-   - 本质上是斐波那契数列的变体
-   - 只是初始值不同
-
-3. 扩展思考：
-   - 如果每次可以爬 1、2 或 3 阶，递推关系是什么？
-   - f(n) = f(n-1) + f(n-2) + f(n-3)
-*/

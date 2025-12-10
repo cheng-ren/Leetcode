@@ -26,6 +26,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AF6635692EE9CA3F0052308E /* LeetcodeTest.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = LeetcodeTest.xctestplan; sourceTree = "<group>"; };
 		AFE5FEE12EA1414F00C761E4 /* Testing.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Testing.framework; path = Platforms/MacOSX.platform/Developer/Library/Frameworks/Testing.framework; sourceTree = DEVELOPER_DIR; };
 		AFE5FF1C2EA1487E00C761E4 /* LeetcodeTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LeetcodeTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,6 +62,7 @@
 		D26E7FE82E24AF8A00AF2B9B = {
 			isa = PBXGroup;
 			children = (
+				AF6635692EE9CA3F0052308E /* LeetcodeTest.xctestplan */,
 				AFE5FF1D2EA1487E00C761E4 /* Leetcode */,
 				AFE5FEE02EA1414F00C761E4 /* Frameworks */,
 				D26E7FF22E24AF8A00AF2B9B /* Products */,

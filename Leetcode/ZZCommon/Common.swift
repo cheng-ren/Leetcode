@@ -16,8 +16,11 @@ extension Tag {
     @Tag static var 双指针: Self
     @Tag static var 快慢指针: Self
     @Tag static var 迭代: Self
+    @Tag static var 二分查找: Self
+    @Tag static var 动态规划: Self
     
     /// 数据结构
+    @Tag static var 数组: Self
     @Tag static var 栈: Self
     @Tag static var 队列: Self
     @Tag static var 哈希表: Self

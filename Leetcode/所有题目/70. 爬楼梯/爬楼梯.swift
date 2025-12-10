@@ -53,13 +53,19 @@ struct 爬楼梯 {
     // MARK: - 动态规划
     // 时间复杂度：O(n)，每个节点最多被访问一次
     // 空间复杂度：O(1)，只使用了常数级别的额外空间
-    class SolutionTrain {
+    class Solution3 {
         func climbStairs(_ n: Int) -> Int {
             var dp: [Int] = [0, 1, 2]
             for i in 3...n {
                 dp.append(dp[i-1] + dp[i-2])
             }
             return dp[n]
+        }
+    }
+    
+    class SolutionTrain {
+        func climbStairs(_ n: Int) -> Int {
+            0
         }
     }
     

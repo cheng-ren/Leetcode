@@ -13,10 +13,13 @@ import Testing
 //  输出：2
 //  ```
 
-@Suite(.tags(.双指针))
+@Suite(.tags(.二分查找))
 struct x的平方根 {
     
-    class SolutionTrain {
+    // MARK: - 二分查找
+    // 时间复杂度：O(log n)
+    // 空间复杂度：O(1)
+    class Solution {
         func mySqrt(_ x: Int) -> Int {
             var l = 0
             var r = x
@@ -31,6 +34,12 @@ struct x的平方根 {
                 }
             }
             return ans
+        }
+    }
+    
+    class SolutionTrain {
+        func mySqrt(_ x: Int) -> Int {
+            0
         }
     }
 

@@ -18,7 +18,7 @@ import Testing
 //  所以最后的字符串为 "ca"。
 //  ```
 
-@Suite(.tags(.栈))
+@Suite(.serialized, .tags(.栈))
 struct 删除字符串中的所有相邻重复项 {
     
     // MARK: - 栈

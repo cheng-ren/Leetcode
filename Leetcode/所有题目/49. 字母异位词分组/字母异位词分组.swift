@@ -13,7 +13,7 @@ import Testing
 //  输出: [["bat"],["nat","tan"],["ate","eat","tea"]]
 //  ```
 
-@Suite(.tags(.哈希表))
+@Suite(.serialized, .tags(.哈希表))
 struct 字母异位词分组 {
     
     // MARK: - 方法1：排序法

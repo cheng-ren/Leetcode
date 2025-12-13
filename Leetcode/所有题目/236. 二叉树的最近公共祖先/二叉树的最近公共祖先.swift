@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.树))
+@Suite(.serialized, .tags(.树))
 struct 二叉树的最近公共祖先 {
     
     /// 存储父节点

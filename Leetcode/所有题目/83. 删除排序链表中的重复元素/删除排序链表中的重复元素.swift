@@ -13,7 +13,7 @@ import Testing
 //  输出: [1,2]
 //  ```
 
-@Suite(.tags(.链表))
+@Suite(.serialized, .tags(.链表))
 struct 删除排序链表中的重复元素 {
     
     // MARK: - 待实现

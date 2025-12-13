@@ -18,7 +18,7 @@ fileprivate func guess(_ num: Int) -> Int {
     return 0
 }
 
-@Suite(.tags(.二分查找))
+@Suite(.serialized, .tags(.二分查找))
 struct 猜数字大小 {
     
     // MARK: - 二分查找

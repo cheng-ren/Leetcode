@@ -13,7 +13,7 @@ import Testing
 //  输出：[4,5,1,2,3]
 //  ```
 
-@Suite(.tags(.链表))
+@Suite(.serialized, .tags(.链表))
 struct 旋转链表 {
     
     // MARK: - 数组辅助解法（空间换时间）

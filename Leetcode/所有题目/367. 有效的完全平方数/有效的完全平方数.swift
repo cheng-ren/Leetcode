@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.二分查找))
+@Suite(.serialized, .tags(.二分查找))
 struct 有效的完全平方数 {
     
     // MARK: - 占位实现

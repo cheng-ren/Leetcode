@@ -10,7 +10,7 @@ import Testing
 
 // 输入: temperatures = [73,74,75,71,69,72,76,73]
 // 输出: [1,1,4,2,1,1,0,0]
-@Suite(.tags(.栈, .递归))
+@Suite(.serialized, .tags(.栈, .递归))
 struct 每日温度 {
     
     // MARK: - 方案1：单调栈（最优解）

@@ -27,7 +27,7 @@ import Testing
 //  LA = LA1 + LA2
 //  LB = LB1 + LB2
 
-@Suite(.tags(.链表, .哈希表))
+@Suite(.serialized, .tags(.链表, .哈希表))
 struct 相交链表 {
     
     // MARK: 哈希表

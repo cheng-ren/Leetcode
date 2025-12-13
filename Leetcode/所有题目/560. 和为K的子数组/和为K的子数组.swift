@@ -13,7 +13,7 @@ import Testing
 //  输出：2
 //  ```
 
-@Suite(.tags(.哈希表))
+@Suite(.serialized, .tags(.哈希表))
 struct 和为K的子数组 {
     
     // MARK: - 请在此处编写你的解决方案

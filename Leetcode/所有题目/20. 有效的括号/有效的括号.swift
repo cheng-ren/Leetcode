@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.栈))
+@Suite(.serialized, .tags(.栈))
 struct 有效的括号 {
     /// 利用栈实现
     /// 时间复杂度：O(n)，每个元素最多入栈和出栈各一次

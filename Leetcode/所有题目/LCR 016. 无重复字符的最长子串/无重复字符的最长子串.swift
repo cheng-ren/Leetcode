@@ -7,7 +7,7 @@
 
 import Testing
 
-@Suite(.tags(.字符串))
+@Suite(.serialized, .tags(.字符串))
 struct 无重复字符的最长子串 {
     // 设置一个map标识每个字符最新出现的位置
     // xd

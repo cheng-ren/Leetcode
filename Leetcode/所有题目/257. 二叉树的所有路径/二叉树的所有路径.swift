@@ -13,7 +13,7 @@ import Testing
 //  输出：["1->2->5","1->3"]
 //  ```
 
-@Suite(.tags(.树, .递归))
+@Suite(.serialized, .tags(.树, .递归))
 struct 二叉树的所有路径 {
     
     // MARK: - 递归

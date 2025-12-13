@@ -13,7 +13,7 @@ import Testing
 //  输出：[1,2,3,4,5]
 //  ```
 
-@Suite(.tags(.链表))
+@Suite(.serialized, .tags(.链表))
 struct 移除链表元素 {
     
     // MARK: - 待实现

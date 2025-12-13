@@ -12,7 +12,7 @@ import Testing
 //  输入：nums1 = [1,2,2,1], nums2 = [2,2]
 //  输出：[2]
 //  ```
-@Suite(.tags(.哈希表))
+@Suite(.serialized, .tags(.哈希表))
 struct 两个数组的交集 {
     
     // MARK: - 哈希表

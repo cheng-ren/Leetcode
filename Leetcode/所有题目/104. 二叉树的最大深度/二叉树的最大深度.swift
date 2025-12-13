@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.递归, .树))
+@Suite(.serialized, .tags(.递归, .树))
 struct 二叉树的最大深度 {
     
     /// 递归（DFS）

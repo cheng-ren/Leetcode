@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.递归))
+@Suite(.serialized, .tags(.递归))
 struct 爬楼梯 {
     
     // MARK: - 递归
@@ -51,21 +51,15 @@ struct 爬楼梯 {
     }
     
     // MARK: - 动态规划
-    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 时间复杂度：O(n)，需要计算从第3阶到第n阶的值
     // 空间复杂度：O(1)，只使用了常数级别的额外空间
-    class Solution3 {
+    class SolutionTrain {
         func climbStairs(_ n: Int) -> Int {
             var dp: [Int] = [0, 1, 2]
             for i in 3...n {
                 dp.append(dp[i-1] + dp[i-2])
             }
             return dp[n]
-        }
-    }
-    
-    class SolutionTrain {
-        func climbStairs(_ n: Int) -> Int {
-            0
         }
     }
     

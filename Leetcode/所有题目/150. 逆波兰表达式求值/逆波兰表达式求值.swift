@@ -12,7 +12,7 @@ import Testing
 // 输出：9
 // 解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) = 9
 
-@Suite(.tags(.栈))
+@Suite(.serialized, .tags(.栈))
 struct 逆波兰表达式求值 {
     
     class Solution {

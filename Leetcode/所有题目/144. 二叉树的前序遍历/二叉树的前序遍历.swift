@@ -13,7 +13,7 @@ import Testing
 //  输出：[1,2,3]
 //  ```
 
-@Suite(.tags(.树, .递归, .迭代))
+@Suite(.serialized, .tags(.树, .递归, .迭代))
 struct 二叉树的前序遍历 {
     
     // MARK: - 递归（原始版本 - 性能较差）

@@ -13,7 +13,7 @@ import Testing
 //  输出: [1,2]
 //  ```
 
-@Suite(.tags(.哈希表))
+@Suite(.serialized, .tags(.哈希表))
 struct 前K个高频元素 {
     
     // MARK: - 方法1：哈希表 + 桶排序（最优解）

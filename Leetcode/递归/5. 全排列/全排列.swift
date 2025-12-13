@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.递归))
+@Suite(.serialized, .tags(.递归))
 struct 全排列 {
     
     /// 回溯（使用 visited 数组）

@@ -9,7 +9,7 @@ import Foundation
 import Testing
 // TODO: 待完成
 
-@Suite(.tags(.树))
+@Suite(.serialized, .tags(.树))
 struct 翻转二叉树 {
     
     class Solution {

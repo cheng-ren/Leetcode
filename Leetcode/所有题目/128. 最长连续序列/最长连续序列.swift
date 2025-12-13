@@ -14,7 +14,7 @@ import Testing
 //  解释：最长数字连续序列是 [1, 2, 3, 4]。它的长度为 4。
 //  ```
 
-@Suite(.tags(.哈希表))
+@Suite(.serialized, .tags(.哈希表))
 struct 最长连续序列 {
     
     // MARK: - 哈希表

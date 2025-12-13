@@ -13,7 +13,7 @@ import Testing
 //  输出：[1,1,2,3,4,4]
 //  ```
 
-@Suite(.tags(.链表, .双指针))
+@Suite(.serialized, .tags(.链表, .双指针))
 struct 合并两个有序链表 {
     
     // MARK: - 方案一：迭代法（推荐）

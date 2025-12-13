@@ -14,7 +14,7 @@ import Testing
 //  解释：链表只有一个中间结点，值为 3 。
 //  ```
 
-@Suite(.tags(.链表))
+@Suite(.serialized, .tags(.链表))
 struct 链表的中间结点 {
     
     // TODO: 实现你的解决方案

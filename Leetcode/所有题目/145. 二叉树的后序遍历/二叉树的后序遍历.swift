@@ -13,7 +13,7 @@ import Testing
 //  输出：[3,2,1]
 //  ```
 
-@Suite(.tags(.树, .递归, .迭代))
+@Suite(.serialized, .tags(.树, .递归, .迭代))
 struct 二叉树的后序遍历 {
     
     class Solution {

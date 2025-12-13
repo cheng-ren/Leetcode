@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.字符串))
+@Suite(.serialized, .tags(.字符串))
 class 最长公共前缀 {
     // 思路:
     class Solution {

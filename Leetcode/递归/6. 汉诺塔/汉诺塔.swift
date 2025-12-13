@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.递归))
+@Suite(.serialized, .tags(.递归))
 struct 汉诺塔 {
     
     /// 基础递归实现

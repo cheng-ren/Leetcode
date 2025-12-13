@@ -16,7 +16,7 @@ import Testing
 //  第二个 1 的下一个最大的数需要循环搜索，结果也是 2。
 //  ```
 
-@Suite(.tags(.栈))
+@Suite(.serialized, .tags(.栈))
 struct 下一个更大元素II {
     
     // MARK: - 单调栈

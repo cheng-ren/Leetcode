@@ -13,7 +13,7 @@ import Testing
 //  输出：2
 //  ```
 
-@Suite(.tags(.二分查找))
+@Suite(.serialized, .tags(.二分查找))
 struct x的平方根 {
     
     // MARK: - 二分查找

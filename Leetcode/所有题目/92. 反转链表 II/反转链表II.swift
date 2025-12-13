@@ -13,7 +13,7 @@ import Testing
 //  输出：[1,4,3,2,5]
 //  ```
 
-@Suite(.tags(.链表))
+@Suite(.serialized, .tags(.链表))
 struct 反转链表II {
     
     // MARK: - 头插法（推荐）

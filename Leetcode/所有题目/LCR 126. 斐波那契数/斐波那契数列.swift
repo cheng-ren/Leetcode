@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.递归))
+@Suite(.serialized, .tags(.递归))
 struct 斐波那契数列 {
     
     /// 基础递归（效率低，有大量重复计算）

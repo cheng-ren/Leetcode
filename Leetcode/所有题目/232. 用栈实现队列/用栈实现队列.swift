@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.tags(.栈))
+@Suite(.serialized, .tags(.栈))
 struct 用栈实现队列 {
     
     class MyQueue {

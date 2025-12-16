@@ -65,14 +65,14 @@ struct 有效的字母异位词 {
     
     @Test func testUnit2() {
         let ret = measureLogger(parameters: ["ab", "a"]) {
-            Solution().isAnagram("ab", "a")
+            SolutionTrain().isAnagram("ab", "a")
         }
         #expect(ret == false)
     }
     
     @Test func testUnit3() {
         let ret = measureLogger(parameters: ["aa", "a"]) {
-            Solution().isAnagram("aa", "a")
+            SolutionTrain().isAnagram("aa", "a")
         }
         #expect(ret == false)
     }

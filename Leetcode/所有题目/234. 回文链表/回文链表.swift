@@ -64,12 +64,17 @@ struct 回文链表 {
             return newNode
         }
     }
-
+    
+    class SolutionTrain {
+        func isPalindrome(_ head: ListNode?) -> Bool {
+            false
+        }
+    }
 
     @Test func testUnit0() async throws {
         let head = ListNode(1, ListNode(2, ListNode(2, ListNode(1))))
         let ret = measureLogger(parameters: [head]) {
-            Solution0().isPalindrome(head)
+            SolutionTrain().isPalindrome(head)
         }
         #expect(ret == true)
     }
@@ -77,7 +82,7 @@ struct 回文链表 {
     @Test func testUnit1() async throws {
         let head = ListNode(1, ListNode(2, ListNode(2, ListNode(1))))
         let ret = measureLogger(parameters: [head]) {
-            Solution1().isPalindrome(head)
+            SolutionTrain().isPalindrome(head)
         }
         #expect(ret == true)
     }

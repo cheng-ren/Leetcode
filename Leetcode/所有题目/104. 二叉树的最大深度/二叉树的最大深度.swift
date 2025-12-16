@@ -71,12 +71,18 @@ struct 二叉树的最大深度 {
         }
     }
     
+    class SolutionTrain {
+        func maxDepth(_ root: TreeNode?) -> Int {
+            0
+        }
+    }
+    
     @Test func testUnit0() {
         // [3,9,20,null,null,15,7]
         let parameters = [3, 9, 20, nil, nil, 15, 7]
         let tree = TreeNode.makeTree(parameters)
         let ret = measureLogger(parameters: [tree]) {
-            Solution0().maxDepth(tree)
+            SolutionTrain().maxDepth(tree)
         }
         #expect(ret == 3)
     }
@@ -85,7 +91,7 @@ struct 二叉树的最大深度 {
         let parameters = [3, 9, 20, nil, nil, 15, 7]
         let tree = TreeNode.makeTree(parameters)
         let ret = measureLogger(parameters: [tree]) {
-            Solution1().maxDepth(tree)
+            SolutionTrain().maxDepth(tree)
         }
         #expect(ret == 3)
     }
@@ -94,7 +100,7 @@ struct 二叉树的最大深度 {
         let parameters = [3, 9, 20, nil, nil, 15, 7]
         let tree = TreeNode.makeTree(parameters)
         let ret = measureLogger(parameters: [tree]) {
-            Solution2().maxDepth(tree)
+            SolutionTrain().maxDepth(tree)
         }
         #expect(ret == 3)
     }

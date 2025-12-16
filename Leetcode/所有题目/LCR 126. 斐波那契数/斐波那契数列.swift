@@ -49,23 +49,29 @@ struct 斐波那契数列 {
         }
     }
     
+    class SolutionTrain {
+        func fib(_ n: Int) -> Int {
+            0
+        }
+    }
+    
     @Test func testUnit0() {
         let ret = measureLogger(parameters: [5]) {
-            Solution0().fib(5)
+            SolutionTrain().fib(5)
         }
         #expect(ret == 5)
     }
     
     @Test func testUnit1() {
         let ret = measureLogger(parameters: [10]) {
-            Solution1().fib(10)
+            SolutionTrain().fib(10)
         }
         #expect(ret == 55)
     }
     
     @Test func testUnit2() {
         let ret = measureLogger(parameters: [15]) {
-            Solution2().fib(15)
+            SolutionTrain().fib(15)
         }
         #expect(ret == 610)
     }

@@ -68,7 +68,7 @@ struct 删除字符串中的所有相邻重复项 {
     
     @Test func testUnit3() {
         let ret = measureLogger(parameters: ["aaaaaaa"]) {
-            Solution().removeDuplicates("aaaaaaa")
+            SolutionTrain().removeDuplicates("aaaaaaa")
         }
         #expect(ret == "a")
     }

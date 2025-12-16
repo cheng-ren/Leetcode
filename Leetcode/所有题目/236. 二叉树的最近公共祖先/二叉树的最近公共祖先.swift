@@ -70,6 +70,12 @@ struct 二叉树的最近公共祖先 {
         }
     }
     
+    class SolutionTrain {
+        func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
+            nil
+        }
+    }
+    
     @Test func testUnit0() {
         let node3 = TreeNode(3)
         let node5 = TreeNode(5)
@@ -95,7 +101,7 @@ struct 二叉树的最近公共祖先 {
         print(root)
 
         let ret = measureLogger(parameters: [root]) {
-            Solution0().lowestCommonAncestor(root, node0, node8)
+            SolutionTrain().lowestCommonAncestor(root, node0, node8)
         }
         #expect(ret?.val == 1)
     }

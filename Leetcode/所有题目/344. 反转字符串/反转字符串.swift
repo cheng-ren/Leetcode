@@ -37,10 +37,16 @@ struct 反转字符串 {
         }
     }
     
+    class SolutionTrain {
+        func reverseString(_ s: inout [Character]) {
+            
+        }
+    }
+    
     @Test func testUnit0() async throws {
         var s: [Character] = ["h","e","l","l","o"]
         let _ = measureLogger(parameters: [s]) {
-            Solution0().reverseString(&s)
+            SolutionTrain().reverseString(&s)
         }
         #expect(s == ["o","l","l","e","h"])
     }
@@ -48,7 +54,7 @@ struct 反转字符串 {
     @Test func testUnit1() async throws {
         var s: [Character] = ["h","e","l","l","o"]
         let _ = measureLogger(parameters: [s]) {
-            Solution1().reverseString(&s)
+            SolutionTrain().reverseString(&s)
         }
         #expect(s == ["o","l","l","e","h"])
     }

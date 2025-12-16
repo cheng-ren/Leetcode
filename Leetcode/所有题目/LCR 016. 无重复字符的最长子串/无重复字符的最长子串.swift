@@ -72,10 +72,16 @@ struct 无重复字符的最长子串 {
         }
     }
     
+    class SolutionTrain {
+        func lengthOfLongestSubstring(_ s: String) -> Int {
+            0
+        }
+    }
+    
     @Test func testUnit0() async throws {
         let s = "abcadbcbb"
         let ret = measureLogger(parameters: [s]) {
-            Solution0().lengthOfLongestSubstring(s)
+            SolutionTrain().lengthOfLongestSubstring(s)
         }
         #expect(ret == 4)
     }
@@ -83,7 +89,7 @@ struct 无重复字符的最长子串 {
     @Test func testUnit1() async throws {
         let s = "abcabcbb"
         let ret = measureLogger(parameters: [s]) {
-            Solution1().lengthOfLongestSubstring(s)
+            SolutionTrain().lengthOfLongestSubstring(s)
         }
         #expect(ret == 3)
     }

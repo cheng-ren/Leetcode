@@ -127,42 +127,6 @@ struct 二叉树的中序遍历 {
         #expect(ret == [1])
     }
     
-    // MARK: - 性能分析说明
-    /*
-     为什么迭代版本（Solution1）比优化递归（Solution0）慢 3 倍？
-     
-     【核心原因】
-     1. **引用计数开销**（最主要）
-        - TreeNode 是类（引用类型），栈中存储的是引用
-        - 每次 stack.append() 和 removeLast() 都涉及引用计数的增减
-        - 对于 1000 个节点，大约有 2000 次引用计数操作（每个节点入栈+出栈）
-        - 递归版本直接访问节点，引用计数操作更少
-     
-     2. **数组扩容开销**
-        - Swift 数组是动态扩容的，初始容量较小
-        - 随着 stack.append() 操作，可能触发多次内存重新分配
-        - 递归版本只维护一个 result 数组，可以预分配容量
-     
-     3. **双重循环开销**
-        - 外层循环：O(n) 次条件判断 (cur != nil || !stack.isEmpty)
-        - 内层循环：O(n) 次条件判断和 append 操作
-        - 递归版本：编译器可能进行尾递归优化和内联优化
-     
-     4. **内存访问模式**
-        - 迭代版本需要同时访问：cur、stack、ret 三个变量
-        - 内存访问更分散，CPU 缓存命中率低
-        - 递归版本访问模式更线性，缓存友好
-     
-     5. **编译器优化**
-        - Swift 编译器对递归函数有更好的优化（内联、尾递归等）
-        - 迭代版本的循环结构较复杂，优化空间有限
-     
-     【结论】
-     - 在 Swift 中，对于引用类型的树节点，优化递归通常比迭代更快
-     - 如果 TreeNode 是值类型（struct），迭代版本可能更快
-     - 实际性能取决于：数据规模、树的结构、编译器优化级别
-     */
-    
     // MARK: - 性能对比测试
     @Test func performanceComparison() {
         // 创建一个较大的平衡二叉树进行性能测试
@@ -177,11 +141,11 @@ struct 二叉树的中序遍历 {
         print("🚀 性能对比测试（1000 个节点的二叉树）")
         print(String(repeating: "=", count: 60))
         
-        // 测试递归（原始版本 - 性能较差）
+        // 测试 SolutionTrain
         let time1 = CFAbsoluteTimeGetCurrent()
-        let result1 = Solution().inorderTraversal(largeTree)
+        let result1 = SolutionTrain().inorderTraversal(largeTree)
         let elapsed1 = CFAbsoluteTimeGetCurrent() - time1
-        print("📊 Solution（递归-原始）: \(String(format: "%.6f", elapsed1))秒")
+        print("📊 SolutionTrain: \(String(format: "%.6f", elapsed1))秒")
         
         // 测试递归（优化版本）
         let time2 = CFAbsoluteTimeGetCurrent()
@@ -205,7 +169,9 @@ struct 二叉树的中序遍历 {
         // 性能分析
         print("\n📈 性能分析：")
         if elapsed1 > elapsed2 * 1.5 {
-            print("  • 优化版递归比原始递归快 \(String(format: "%.2f", elapsed1 / elapsed2))倍")
+            print("  • SolutionTrain 比优化递归慢 \(String(format: "%.2f", elapsed1 / elapsed2))倍")
+        } else if elapsed2 > elapsed1 * 1.5 {
+            print("  • SolutionTrain 比优化递归快 \(String(format: "%.2f", elapsed2 / elapsed1))倍")
         }
         if elapsed2 > elapsed3 * 1.2 {
             print("  • 迭代版本比优化递归快 \(String(format: "%.2f", elapsed2 / elapsed3))倍")

@@ -46,8 +46,9 @@ class 最长公共前缀 {
         let strs = ["flower","flow","flight"]
 //        let strs = ["ab", "a"]
 //        let strs = ["a", "ab"]
-        let ret = Solution().longestCommonPrefix(strs) // 预期 "fl"
-        print(ret)
+        let ret = measureLogger(parameters: [strs]) {
+            SolutionTrain().longestCommonPrefix(strs)
+        }
         #expect(ret == "fl")
     }
     

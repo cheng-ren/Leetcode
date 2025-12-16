@@ -55,6 +55,25 @@ struct 每日温度 {
         }
     }
     
+    // MARK: - 方案1的变种, 逆向思维
+    class Solution2 {
+        func dailyTemperatures(_ temperatures: [Int]) -> [Int] {
+            var stack: [Int] = []
+            var result: [Int] = Array(repeating: 0, count: temperatures.count)
+            for i in stride(from: temperatures.count - 1, through: 0, by: -1) {
+                let val = temperatures[i]
+            
+                while !stack.isEmpty && temperatures[stack.last!] <= val {
+                    stack.removeLast()
+                }
+
+                result[i] = stack.isEmpty ? 0 : stack.last! - i
+                stack.append(i)
+            }
+            return result
+        }
+    }
+    
     // 输入: temperatures = [73,74,75,71,69,72,76,73]
     // 输出: [1,1,4,2,1,1,0,0]
     class SolutionTrain {

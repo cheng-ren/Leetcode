@@ -42,8 +42,7 @@ struct 二叉树的所有路径 {
     
     class SolutionTrain {
         func binaryTreePaths(_ root: TreeNode?) -> [String] {
-            
-            return []
+            []
         }
     }
     

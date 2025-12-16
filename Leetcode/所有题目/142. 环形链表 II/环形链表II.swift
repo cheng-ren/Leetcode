@@ -60,23 +60,7 @@ struct 环形链表II {
 
     class SolutionTrain {
         func detectCycle(_ head: ListNode?) -> ListNode? {
-            var slow = head
-            var fast = head
-            while fast != nil {
-                slow = slow?.next
-                fast = fast?.next?.next
-                if slow === fast { break }
-            }
-            
-            guard slow == fast else { return nil }
-            
-            slow = head
-            
-            while slow !== fast {
-                slow = slow?.next
-                fast = fast?.next
-            }
-            return slow
+            nil
         }
     }
 

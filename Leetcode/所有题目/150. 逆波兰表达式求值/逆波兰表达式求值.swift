@@ -86,7 +86,7 @@ struct 逆波兰表达式求值 {
     // 解释：该算式转化为常见的中缀算术表达式为：((2 + 1) * 3) = 9
     class SolutionTrain {
         func evalRPN(_ tokens: [String]) -> Int {
-            0
+            
         }
     }
     

@@ -16,7 +16,9 @@ import Testing
 @Suite(.serialized, .tags(.链表))
 struct 移除链表元素 {
     
-    // MARK: - 待实现
+    // MARK: - 方案一：虚拟头节点
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func removeElements(_ head: ListNode?, _ val: Int) -> ListNode? {
             // 创建虚拟头节点，简化删除操作（特别是删除头节点的情况）

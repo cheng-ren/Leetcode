@@ -7,7 +7,7 @@
 
 import Testing
 
-@Suite(.serialized, .tags(.字符串))
+@Suite(.serialized, .tags(.简单, .字符串))
 struct 反转字符串 {
     
     // 交换0

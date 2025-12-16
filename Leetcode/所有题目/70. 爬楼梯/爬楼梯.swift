@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.serialized, .tags(.递归))
+@Suite(.serialized, .tags(.简单, .递归))
 struct 爬楼梯 {
     
     // MARK: - 递归

@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.serialized, .tags(.链表))
+@Suite(.serialized, .tags(.简单, .链表))
 struct 回文链表 {
     
     // 遍历

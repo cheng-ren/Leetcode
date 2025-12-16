@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.serialized, .tags(.树))
+@Suite(.serialized, .tags(.简单, .树))
 struct 对称二叉树 {
     
     // MARK: - 递归

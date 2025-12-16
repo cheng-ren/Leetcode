@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.serialized, .tags(.数组, .二分查找))
+@Suite(.serialized, .tags(.简单, .数组, .二分查找))
 struct 二分查找 {
     
     // MARK: - 二分查找

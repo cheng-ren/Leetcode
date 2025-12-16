@@ -11,6 +11,9 @@ import Testing
 let canPrintProblem = ProcessInfo.processInfo.environment["canPrintProblem"] != nil
 
 extension Tag {
+    @Tag static var 简单: Self
+    @Tag static var 中等: Self
+    @Tag static var 困难: Self
     /// 解决思路
     @Tag static var 递归: Self
     @Tag static var 双指针: Self

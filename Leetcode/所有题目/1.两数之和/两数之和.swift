@@ -7,7 +7,7 @@
 
 import Testing
 
-@Suite(.serialized, .tags(.哈希表))
+@Suite(.serialized, .tags(.简单, .哈希表))
 struct 两数之和 {
     
     /// 暴力解法

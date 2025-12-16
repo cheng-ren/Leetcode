@@ -21,7 +21,7 @@ import Testing
 //  |_|
 //  ```
 
-@Suite(.serialized, .tags(.栈))
+@Suite(.serialized, .tags(.简单, .栈))
 struct 下一个更大元素I {
     
     // MARK: - 单调栈

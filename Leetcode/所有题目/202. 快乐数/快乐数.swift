@@ -16,7 +16,7 @@ import Testing
 //  6² + 8² = 100
 //  1² + 0² + 0² = 1
 
-@Suite(.serialized, .tags(.哈希表, .快慢指针))
+@Suite(.serialized, .tags(.简单, .哈希表, .快慢指针))
 struct 快乐数 {
     
     // MARK: - 哈希表

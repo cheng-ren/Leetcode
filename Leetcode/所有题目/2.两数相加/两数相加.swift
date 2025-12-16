@@ -7,7 +7,7 @@
 
 import Testing
 
-@Suite(.serialized, .tags(.链表))
+@Suite(.serialized, .tags(.中等, .链表))
 struct 两数相加 {
     
     class Solution {

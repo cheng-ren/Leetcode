@@ -8,7 +8,7 @@
 import Foundation
 import Testing
 
-@Suite(.serialized, .tags(.树, .递归))
+@Suite(.serialized, .tags(.简单, .树, .递归))
 struct 相同的树 {
     
     class Solution {

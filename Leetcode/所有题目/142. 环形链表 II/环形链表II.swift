@@ -14,7 +14,7 @@ import Testing
 //  解释：链表中有一个环，其尾部连接到第二个节点。
 //  ```
 
-@Suite(.serialized, .tags(.链表, .快慢指针, .哈希表))
+@Suite(.serialized, .tags(.中等, .链表, .快慢指针, .哈希表))
 struct 环形链表II {
     
     // MARK: - 哈希表

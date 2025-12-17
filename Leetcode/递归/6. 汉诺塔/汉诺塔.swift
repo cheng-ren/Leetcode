@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .递归))
 struct 汉诺塔 {
     
-    /// 基础递归实现
+    // MARK: - 基础递归实现
+    // 时间复杂度：O(2^n)，每个盘子需要移动 2^(n-1) 次
+    // 空间复杂度：O(n)，递归调用栈的深度
     class Solution0 {
         var moveCount = 0
         
@@ -32,7 +34,9 @@ struct 汉诺塔 {
         }
     }
     
-    /// 带可视化的递归
+    // MARK: - 带可视化的递归
+    // 时间复杂度：O(2^n)，每个盘子需要移动 2^(n-1) 次
+    // 空间复杂度：O(n)，递归调用栈的深度和状态存储
     class Solution1 {
         func hanoi(_ n: Int) -> Int {
             var towers: [String: [Int]] = [

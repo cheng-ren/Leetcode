@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .递归, .树))
 struct 二叉树的最大深度 {
     
-    /// 递归（DFS）
+    // MARK: - 递归（DFS）
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
     class Solution0 {
         func maxDepth(_ root: TreeNode?) -> Int {
             guard root != nil else { return 0 }
@@ -19,7 +21,9 @@ struct 二叉树的最大深度 {
         }
     }
     
-    /// 迭代（BFS 层序遍历）
+    // MARK: - 迭代（BFS 层序遍历）
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，队列的大小最多为树的最大宽度
     class Solution1 {
         func maxDepth(_ root: TreeNode?) -> Int {
             // 提示：使用队列，逐层遍历

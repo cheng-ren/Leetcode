@@ -25,8 +25,8 @@ import Testing
 struct 下一个更大元素I {
     
     // MARK: - 单调栈
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(n)
+    // 时间复杂度：O(m + n)，m 和 n 分别是两个数组的长度
+    // 空间复杂度：O(n)，需要存储 nums2 的映射关系
     class Solution {
         func nextGreaterElement(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
             var stack: [Int] = [] // 存储最大值

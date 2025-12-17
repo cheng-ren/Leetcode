@@ -16,7 +16,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .字符串, .哈希表))
 struct 有效的字母异位词 {
     
-    // MARK: - TODO: 实现你的解决方案
+    // MARK: - 哈希表
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(1)，字符集大小固定为 26
     class Solution {
         func isAnagram(_ s: String, _ t: String) -> Bool {
             guard s.count == t.count else { return false }

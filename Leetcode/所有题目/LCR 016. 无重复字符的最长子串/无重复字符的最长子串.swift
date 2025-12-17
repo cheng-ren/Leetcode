@@ -9,9 +9,10 @@ import Testing
 
 @Suite(.serialized, .tags(.中等, .字符串))
 struct 无重复字符的最长子串 {
-    // 设置一个map标识每个字符最新出现的位置
-    // xd
-
+    
+    // MARK: - 哈希表
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(min(m, n))，m 是字符集大小，n 是字符串长度
     class Solution0 {
         
         func lengthOfLongestSubstring(_ s: String) -> Int {
@@ -29,7 +30,9 @@ struct 无重复字符的最长子串 {
         
     }
     
-    /// 方案一: Map 里面存某个字符上一个位置的下标
+    // MARK: - 滑动窗口（优化版本）
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(min(m, n))，m 是字符集大小，n 是字符串长度
     class Solution1 {
         
         func lengthOfLongestSubstring(_ s: String) -> Int {
@@ -51,7 +54,9 @@ struct 无重复字符的最长子串 {
         }
     }
     
-    /// 滑动窗口
+    // MARK: - 滑动窗口
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(min(m, n))，m 是字符集大小，n 是字符串长度
     class Solution {
         func lengthOfLongestSubstring(_ s: String) -> Int {
             var charSet = Set<Character>()

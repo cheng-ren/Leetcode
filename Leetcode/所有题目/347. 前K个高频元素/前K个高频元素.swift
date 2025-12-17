@@ -16,9 +16,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .哈希表))
 struct 前K个高频元素 {
     
-    // MARK: - 方法1：哈希表 + 桶排序（最优解）
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(n)
+    // MARK: - 哈希表 + 桶排序（最优解）
+    // 时间复杂度：O(n)，每个元素最多被访问一次
+    // 空间复杂度：O(n)，需要存储频率映射和桶数组
     class Solution {
         func topKFrequent(_ nums: [Int], _ k: Int) -> [Int] {
             // 1. 统计频率

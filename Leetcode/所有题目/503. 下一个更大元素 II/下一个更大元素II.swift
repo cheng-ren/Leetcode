@@ -20,9 +20,8 @@ import Testing
 struct 下一个更大元素II {
     
     // MARK: - 单调栈
-    // 循环数组的处理技巧：将数组长度翻倍，通过取模运算模拟循环
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(n)
+    // 时间复杂度：O(n)，每个元素最多入栈和出栈各一次
+    // 空间复杂度：O(n)，栈的大小
     class Solution {
         func nextGreaterElements(_ nums: [Int]) -> [Int] {
             var stack: [Int] = []

@@ -30,7 +30,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .链表, .哈希表))
 struct 相交链表 {
     
-    // MARK: 哈希表
+    // MARK: - 哈希表
+    // 时间复杂度：O(m + n)，m 和 n 分别是两个链表的长度
+    // 空间复杂度：O(m)，需要存储一个链表的所有节点
     class Solution {
         func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
             var set: Set<ListNode> = Set()
@@ -52,7 +54,9 @@ struct 相交链表 {
         }
     }
     
-    // MARK: 双指针
+    // MARK: - 双指针
+    // 时间复杂度：O(m + n)，m 和 n 分别是两个链表的长度
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution1 {
         func getIntersectionNode(_ headA: ListNode?, _ headB: ListNode?) -> ListNode? {
             nil

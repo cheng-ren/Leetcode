@@ -15,6 +15,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .栈))
 struct 逆波兰表达式求值 {
     
+    // MARK: - 栈
+    // 时间复杂度：O(n)，每个元素最多被访问一次
+    // 空间复杂度：O(n)，栈的大小
     class Solution {
         func evalRPN(_ tokens: [String]) -> Int {
             
@@ -48,6 +51,9 @@ struct 逆波兰表达式求值 {
         }
     }
     
+    // MARK: - 栈（优化版本）
+    // 时间复杂度：O(n)，每个元素最多被访问一次
+    // 空间复杂度：O(n)，栈的大小
     class Solution1 {
         func evalRPN(_ tokens: [String]) -> Int {
             let operations: Set<String> = [

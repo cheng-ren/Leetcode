@@ -35,8 +35,8 @@ struct 每日温度 {
         }
     }
     
-    // MARK: - 方案3：递归（原始方案，不推荐）
-    // 时间复杂度：O(n²)
+    // MARK: - 递归（原始方案，不推荐）
+    // 时间复杂度：O(n²)，存在重复计算
     // 空间复杂度：O(n²)，递归栈 + 数组切片
     class Solution1 {
         func dailyTemperatures(_ temperatures: [Int]) -> [Int] {

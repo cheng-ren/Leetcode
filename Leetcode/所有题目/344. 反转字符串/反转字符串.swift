@@ -10,7 +10,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .字符串))
 struct 反转字符串 {
     
-    // 交换0
+    // MARK: - 双指针交换
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution0 {
         func reverseString(_ s: inout [Character]) {
             for i in 0..<(s.count / 2) {
@@ -21,7 +23,9 @@ struct 反转字符串 {
         }
     }
     
-    // 交换1
+    // MARK: - 双指针交换（使用 swapAt）
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution1 {
         func reverseString(_ s: inout [Character]) {
             for i in 0..<(s.count / 2) {

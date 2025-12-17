@@ -16,7 +16,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .哈希表))
 struct 和为K的子数组 {
     
-    // MARK: - 请在此处编写你的解决方案
+    // MARK: - 前缀和 + 哈希表
+    // 时间复杂度：O(n)，每个元素最多被访问一次
+    // 空间复杂度：O(n)，需要存储前缀和
     class Solution {
         func subarraySum(_ nums: [Int], _ k: Int) -> Int {
             return 0

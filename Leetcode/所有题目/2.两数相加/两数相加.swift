@@ -10,6 +10,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .链表))
 struct 两数相加 {
     
+    // MARK: - 模拟加法
+    // 时间复杂度：O(max(m, n))，m 和 n 分别是两个链表的长度
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间（不考虑结果链表）
     class Solution {
         
         func addTwoNumbers(_ l1: ListNode?, _ l2: ListNode?) -> ListNode? {

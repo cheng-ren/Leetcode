@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .链表, .递归, .迭代))
 struct 反转链表 {
     
-    /// 递归方法（重点学习）
+    // MARK: - 递归
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，递归调用栈的深度为链表长度
     class Solution0 {
         func reverseList(_ head: ListNode?) -> ListNode? {
             if (head == nil || head?.next == nil) {
@@ -24,7 +26,9 @@ struct 反转链表 {
         }
     }
     
-    /// 迭代方法（对比学习）
+    // MARK: - 迭代
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution1 {
         func reverseList(_ head: ListNode?) -> ListNode? {
             // TODO: 实现迭代反转

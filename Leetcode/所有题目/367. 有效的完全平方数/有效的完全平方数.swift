@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .二分查找))
 struct 有效的完全平方数 {
     
-    // MARK: - 占位实现
+    // MARK: - 二分查找
+    // 时间复杂度：O(log n)
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func isPerfectSquare(_ num: Int) -> Bool {
             false

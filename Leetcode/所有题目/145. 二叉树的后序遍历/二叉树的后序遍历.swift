@@ -16,6 +16,9 @@ import Testing
 @Suite(.serialized, .tags(.困难, .树, .递归, .迭代))
 struct 二叉树的后序遍历 {
     
+    // MARK: - 递归
+    // 时间复杂度：O(n²)，因为数组拼接操作会导致多次数组复制
+    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
     class Solution {
         func postorderTraversal(_ root: TreeNode?) -> [Int] {
             guard let root = root else { return [] }
@@ -27,6 +30,9 @@ struct 二叉树的后序遍历 {
         }
     }
     
+    // MARK: - 递归（优化版本）
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
     class Solution1 {
         func postorderTraversal(_ root: TreeNode?) -> [Int] {
             var result: [Int] = []

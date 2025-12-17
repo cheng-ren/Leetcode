@@ -10,6 +10,9 @@ import Testing
 
 struct 环形链表 {
     
+    // MARK: - 快慢指针
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func hasCycle(_ head: ListNode?) -> Bool {
             var slow = head

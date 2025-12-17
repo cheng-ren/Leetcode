@@ -18,8 +18,8 @@ import Testing
 struct 环形链表II {
     
     // MARK: - 哈希表
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(n)
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，需要存储所有访问过的节点
     class Solution {
         func detectCycle(_ head: ListNode?) -> ListNode? {
             guard head != nil else { return nil }
@@ -37,8 +37,8 @@ struct 环形链表II {
     }
     
     // MARK: - 双指针
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(1)
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution1 {
         func detectCycle(_ head: ListNode?) -> ListNode? {
             var slow = head

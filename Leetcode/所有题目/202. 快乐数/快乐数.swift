@@ -20,7 +20,8 @@ import Testing
 struct 快乐数 {
     
     // MARK: - 哈希表
-    
+    // 时间复杂度：O(log n)，数字的位数是 log n
+    // 空间复杂度：O(log n)，需要存储循环中的数字
     class Solution {
         func isHappy(_ n: Int) -> Bool {
             
@@ -52,6 +53,8 @@ struct 快乐数 {
     }
     
     // MARK: - 快慢指针
+    // 时间复杂度：O(log n)，数字的位数是 log n
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution2 {
         
         func isHappy(_ n: Int) -> Bool {

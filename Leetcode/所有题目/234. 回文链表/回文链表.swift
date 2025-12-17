@@ -11,9 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .链表))
 struct 回文链表 {
     
-    // 遍历
-    // 时间复杂度O(n)
-    // 空间复杂度O(n)
+    // MARK: - 数组辅助
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，需要一个数组存储链表节点
     class Solution0 {
         func isPalindrome(_ head: ListNode?) -> Bool {
             var p = head
@@ -33,6 +33,9 @@ struct 回文链表 {
         }
     }
 
+    // MARK: - 快慢指针 + 反转链表
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution1 {
         func isPalindrome(_ head: ListNode?) -> Bool {
             // 快慢指针找链表中点

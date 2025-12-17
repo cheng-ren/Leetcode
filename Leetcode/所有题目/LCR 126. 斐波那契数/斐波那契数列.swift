@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .递归))
 struct 斐波那契数列 {
     
-    /// 基础递归（效率低，有大量重复计算）
+    // MARK: - 基础递归（效率低，有大量重复计算）
+    // 时间复杂度：O(2^n)，存在大量重复计算
+    // 空间复杂度：O(n)，递归调用栈的深度
     class Solution0 {
         func fib(_ n: Int) -> Int {
             guard n > 2 else { return 1 }
@@ -19,7 +21,9 @@ struct 斐波那契数列 {
         }
     }
     
-    /// 记忆化递归（推荐）
+    // MARK: - 记忆化递归（推荐）
+    // 时间复杂度：O(n)，每个子问题最多被计算一次
+    // 空间复杂度：O(n)，递归调用栈的深度和记忆化数组
     class Solution1 {
         func fib(_ n: Int) -> Int {
             var memo: [Int: Int] = [:]

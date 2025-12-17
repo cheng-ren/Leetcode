@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .递归))
 struct 全排列 {
     
-    /// 回溯（使用 visited 数组）
+    // MARK: - 回溯（使用 visited 数组）
+    // 时间复杂度：O(n! × n)，n! 个排列，每个排列需要 O(n) 构建
+    // 空间复杂度：O(n)，递归调用栈的深度和 visited 数组
     class Solution0 {
         func permute(_ nums: [Int]) -> [[Int]] {
             // TODO: 实现回溯算法
@@ -55,7 +57,9 @@ struct 全排列 {
         }
     }
     
-    /// 回溯（通过 contains 判断）
+    // MARK: - 回溯（通过 contains 判断）
+    // 时间复杂度：O(n! × n)，n! 个排列，每个排列需要 O(n) 构建
+    // 空间复杂度：O(n)，递归调用栈的深度
     class Solution1 {
         func permute(_ nums: [Int]) -> [[Int]] {
             // TODO: 实现回溯算法

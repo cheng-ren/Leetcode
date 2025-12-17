@@ -22,9 +22,8 @@ import Testing
 struct 删除字符串中的所有相邻重复项 {
     
     // MARK: - 栈
-    // 遍历字符串，如果栈顶元素与当前字符相同则弹出，否则入栈
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(n)
+    // 时间复杂度：O(n)，每个字符最多被访问一次
+    // 空间复杂度：O(n)，栈的大小
     class Solution {
         func removeDuplicates(_ s: String) -> String {
             var stack: [Character] = []

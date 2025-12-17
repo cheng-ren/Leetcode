@@ -17,7 +17,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .链表))
 struct 链表的中间结点 {
     
-    // TODO: 实现你的解决方案
+    // MARK: - 快慢指针
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func middleNode(_ head: ListNode?) -> ListNode? {
             var fast = head

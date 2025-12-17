@@ -10,7 +10,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .哈希表))
 struct 两数之和 {
     
-    /// 暴力解法
+    // MARK: - 暴力解法
+    // 时间复杂度：O(n²)，需要两层循环
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution0 {
     
         func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
@@ -25,7 +27,9 @@ struct 两数之和 {
         }
     }
     
-    /// 字典缓存
+    // MARK: - 哈希表
+    // 时间复杂度：O(n)，每个元素最多被访问一次
+    // 空间复杂度：O(n)，需要存储最多 n 个元素
     class Solution1 {
         
         func twoSum(_ nums: [Int], _ target: Int) -> [Int] {

@@ -16,6 +16,9 @@ import Testing
 @Suite(.tags(.二分查找))
 struct 山脉数组的峰顶索引 {
     
+    // MARK: - 二分查找
+    // 时间复杂度：O(log n)
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func peakIndexInMountainArray(_ arr: [Int]) -> Int {
             // TODO: 实现你的解决方案

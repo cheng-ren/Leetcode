@@ -11,7 +11,9 @@ import Testing
 @Suite(.serialized, .tags(.中等, .树))
 struct 二叉树的最近公共祖先 {
     
-    /// 存储父节点
+    // MARK: - 存储父节点
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，需要存储所有节点的父节点关系
     class Solution0 {
         func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
             var parant: [TreeNode: TreeNode] = [:]
@@ -42,7 +44,9 @@ struct 二叉树的最近公共祖先 {
         }
     }
     
-    /// 递归
+    // MARK: - 递归
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
     class Solution1 {
         func lowestCommonAncestor(_ root: TreeNode?, _ p: TreeNode?, _ q: TreeNode?) -> TreeNode? {
             // 递归终止条件

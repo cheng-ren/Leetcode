@@ -18,8 +18,8 @@ import Testing
 struct 最长连续序列 {
     
     // MARK: - 哈希表
-    // 时间复杂度：O(n)
-    // 空间复杂度：O(n)
+    // 时间复杂度：O(n)，每个元素最多被访问一次
+    // 空间复杂度：O(n)，需要存储所有元素
     class Solution {
         func longestConsecutive(_ nums: [Int]) -> Int {
             let set: Set<Int> = Set(nums)

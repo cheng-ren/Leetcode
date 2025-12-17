@@ -16,7 +16,9 @@ import Testing
 @Suite(.serialized, .tags(.简单, .链表))
 struct 删除排序链表中的重复元素 {
     
-    // MARK: - 待实现
+    // MARK: - 一次遍历
+    // 时间复杂度：O(n)，每个节点最多被访问一次
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func deleteDuplicates(_ head: ListNode?) -> ListNode? {
             guard head != nil else { return nil }

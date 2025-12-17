@@ -12,8 +12,8 @@ import Testing
 struct 爬楼梯 {
     
     // MARK: - 递归
-    // 时间复杂度：O(n)，每个节点最多被访问一次
-    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
+    // 时间复杂度：O(2^n)，存在大量重复计算
+    // 空间复杂度：O(n)，递归调用栈的深度
     class Solution0 {
         func climbStairs(_ n: Int) -> Int {
             if n == 1 { return 1 }
@@ -24,8 +24,8 @@ struct 爬楼梯 {
     }
     
     // MARK: - 记忆化递归
-    // 时间复杂度：O(n)，每个节点最多被访问一次
-    // 空间复杂度：O(n)，递归调用栈的深度为树的高度
+    // 时间复杂度：O(n)，每个子问题最多被计算一次
+    // 空间复杂度：O(n)，递归调用栈的深度和记忆化数组
     class Solution1 {
         func climbStairs(_ n: Int) -> Int {
             var memo: [Int: Int] = [:]

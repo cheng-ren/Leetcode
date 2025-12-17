@@ -1,5 +1,5 @@
 ---
-alwaysApply: true
+alwaysApply: false
 ---
 ## 执行流程
 - 将这个链接内容拉下来

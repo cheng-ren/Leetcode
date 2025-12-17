@@ -16,8 +16,8 @@ import Testing
 struct 两个数组的交集 {
     
     // MARK: - 哈希表
-    // 时间复杂度：O(n + m)
-    // 空间复杂度：O(n + m)
+    // 时间复杂度：O(n + m)，n 和 m 分别是两个数组的长度
+    // 空间复杂度：O(min(n, m))，存储较小数组的元素
     class Solution {
         func intersection(_ nums1: [Int], _ nums2: [Int]) -> [Int] {
             let set1: Set<Int> = Set(nums1)

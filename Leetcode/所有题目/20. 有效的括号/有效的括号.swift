@@ -10,15 +10,9 @@ import Testing
 
 @Suite(.serialized, .tags(.简单, .栈))
 struct 有效的括号 {
-    /// 利用栈实现
-    /// 时间复杂度：O(n)，每个元素最多入栈和出栈各一次
-    /// 空间复杂度：O(n)，栈的大小
-    /// Note:
-    /// 遇到左括号：直接压入栈
-    /// 遇到右括号：
-    ///  - 如果不匹配或栈为空，立即返回 false
-    ///  - 出栈
-    /// 遍历结束后：检查栈是否为空
+    // MARK: - 栈
+    // 时间复杂度：O(n)，每个元素最多入栈和出栈各一次
+    // 空间复杂度：O(n)，栈的大小
     class Solution {
         func isValid(_ s: String) -> Bool {
             let pairs: [Character: Character] = [

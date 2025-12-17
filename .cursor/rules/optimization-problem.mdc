@@ -1,7 +1,6 @@
 ---
-alwaysApply: true
+alwaysApply: false
 ---
-
 ## 执行流程
 - 分析打开文件的现有代码中SolutionTrain这个解决方案
 - 检查问题

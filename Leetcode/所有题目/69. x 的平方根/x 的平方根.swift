@@ -18,7 +18,7 @@ struct x的平方根 {
     
     // MARK: - 二分查找
     // 时间复杂度：O(log n)
-    // 空间复杂度：O(1)
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         func mySqrt(_ x: Int) -> Int {
             var l = 0

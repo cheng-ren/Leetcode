@@ -13,7 +13,7 @@ struct 二分查找 {
     
     // MARK: - 二分查找
     // 时间复杂度：O(log n)
-    // 空间复杂度：O(1)
+    // 空间复杂度：O(1)，只使用了常数级别的额外空间
     class Solution {
         
         func search(_ nums: [Int], _ target: Int) -> Int {
